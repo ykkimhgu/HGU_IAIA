@@ -38,8 +38,7 @@ Which gives the best evaluation performance on Test set? Also try to optimize KN
 
 ## Preparation
 
-Download Template MATLAB Source file ([download here)](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Assignment/Assignment_FeatureExtraction_CWRUsmall)
-
+Download Template MATLAB Source file ([download here)](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Assignment/Assignment_Classification_%20CWRUsmall)
 
 
 ## Dataset
