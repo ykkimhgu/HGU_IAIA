@@ -90,12 +90,11 @@ Assignments can be changed with notice
 
 
 
-
-### [Assignment 2:  Diagnosis101CWRU](https://github.com/ykkimhgu/digitaltwinNautomation-src/blob/main/IAIA_Assignment_2_Diagnosis101CWRU.md)
-
+### [Assignment 2:  Classification CWRU small](https://github.com/ykkimhgu/digitaltwinNautomation-src/blob/main/IAIA_Assignment_2_Diagnosis101CWRU.md)
 
 
-### Assignment 3:  Machine Learning
+
+### Assignment 3:  Machine Learning Tutorials
 
 Submit all tutorial matlab  files on machine learning 
 *  LinearRegression, LogisticRegression
