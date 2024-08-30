@@ -19,6 +19,8 @@ Mod: 2024.09
 
 ### 1. Install MATLAB and toolbox
 TBA
+* Statistics and Machine Learning Toolbox
+* Signal Processing Toolbox
 
 
 
