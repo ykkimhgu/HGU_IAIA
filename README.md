@@ -79,7 +79,11 @@ Under `..\IAIA\Tutorial\` folder, create the following sub-folders
 
 ---
 
+# Dataset
+[Read the description of datasets used in this class](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Dataset_Description.md)
 
+
+---
 
 # Assignments
 
