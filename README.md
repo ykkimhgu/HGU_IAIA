@@ -116,7 +116,7 @@ Submit all tutorial matlab  files on machine learning
 This  can be changed with notice
 
 
-### [LAB 1: CWRU Bearing Fault Diagnosis]([https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_CWRU_BearingFaultClassification.md](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Assignment/LAB_Bearing_CWRU/IAIA_LAB_CWRU_BearingFaultClassification.md))
+### [LAB 1: CWRU Bearing Fault Diagnosis](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Assignment/LAB_Bearing_CWRU/IAIA_LAB_CWRU_BearingFaultClassification.md)
 
 
 
