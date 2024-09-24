@@ -83,6 +83,9 @@ Under `..\IAIA\Tutorial\` folder, create the following sub-folders
 [Read the description of datasets used in this class](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Dataset_Description.md)
 
 
+## Case Study 3 : WT prognosis
+[Case Study 3 Dataset](https://drive.google.com/drive/folders/1msOkNKD7zuBDxMqTywkEfcpp9lnW-wEf?usp=sharing)
+
 ---
 
 # Assignments
