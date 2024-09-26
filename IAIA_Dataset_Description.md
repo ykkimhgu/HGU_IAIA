@@ -121,4 +121,61 @@ https://github.com/ykkimhgu/HGU_IAIA/blob/main/DTA_OpenDataset4PHM.md
 
 
 
-### 
+## PHM Asia Pacific 2023 Dataset 
+
+### Introduction 
+
+https://phmap.jp/program-data/
+
+### Dataset
+
+* [PHM Asia Pacific 2023 Challenge Dataset](https://drive.google.com/drive/folders/1MLUVndRdowhbB8bUXiklrYEOhhYETESI?usp=sharing)
+
+
+
+## KAMP Casting Molding Equipment Condition Prediction Dataset 
+
+### Introduction 
+
+[Guidebook](https://drive.google.com/file/d/1FgTN5zu7YaGMOyilFby_vPkOOa-G59Z9/view?usp=drive_link)
+
+### Dataset
+
+* [Casting Molding Dataset](https://drive.google.com/drive/folders/1fdnYsRv1TYJ2Nhdp_5B4s7No-Br6HvR1?usp=sharing)
+
+
+
+## KAMP Injection Molding Equipment Dataset
+
+### Introduction 
+
+[Guidebook](https://drive.google.com/file/d/16343TwlMk_CHfKlKneaDaM8eTFqh8VmK/view?usp=drive_link)
+
+### Dataset
+
+* [Injection Molding Dataset](https://drive.google.com/drive/folders/13Lw71eGkCocErELS9qTuX7TaXZpltzrD?usp=sharing)
+
+
+
+## KAMP MCT Equipment Predictive Maintenance Dataset
+
+### Introduction 
+
+[Guidebook](https://drive.google.com/file/d/1SGu0Xk4Oaie4YIGO2SzHA_pKl60Hmd__/view?usp=drive_link)
+
+### Dataset
+
+* [MCT Dataset](https://drive.google.com/drive/folders/1aPOgr81cCTDmF5YwQpT5dUolBJAqd8oS?usp=sharing)
+
+
+
+## KAMP Tempering Process Quality Prediction Dataset
+
+### Introduction 
+
+[Guidebook](https://drive.google.com/file/d/1EmZoI0NmyUZtslIu2zHJl0IIF9vg-FGq/view?usp=drive_link)
+
+### Dataset
+
+* [Tempering Dataset](https://drive.google.com/drive/folders/1j05glPUcERuz2FviOpp4YJwwNuDRQakl?usp=sharing)
+
