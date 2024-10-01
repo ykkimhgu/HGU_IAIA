@@ -133,15 +133,15 @@ https://phmap.jp/program-data/
 
 
 
-## KAMP Casting Molding Equipment Condition Prediction Dataset 
+## KAMP Tempering Process Quality Prediction Dataset
 
 ### Introduction 
 
-[Guidebook](https://drive.google.com/file/d/1FgTN5zu7YaGMOyilFby_vPkOOa-G59Z9/view?usp=drive_link)
+[Guidebook](https://drive.google.com/file/d/1EmZoI0NmyUZtslIu2zHJl0IIF9vg-FGq/view?usp=drive_link)
 
 ### Dataset
 
-* [Casting Molding Dataset](https://drive.google.com/drive/folders/1fdnYsRv1TYJ2Nhdp_5B4s7No-Br6HvR1?usp=sharing)
+* [Tempering 공정 품질 예측을 위한 AI 학습용 데이터셋](https://drive.google.com/drive/folders/1j05glPUcERuz2FviOpp4YJwwNuDRQakl?usp=sharing)
 
 
 
@@ -153,29 +153,6 @@ https://phmap.jp/program-data/
 
 ### Dataset
 
-* [Injection Molding Dataset](https://drive.google.com/drive/folders/13Lw71eGkCocErELS9qTuX7TaXZpltzrD?usp=sharing)
+* [사출 설비 통합데이터셋](https://drive.google.com/drive/folders/13Lw71eGkCocErELS9qTuX7TaXZpltzrD?usp=sharing)
 
-
-
-## KAMP MCT Equipment Predictive Maintenance Dataset
-
-### Introduction 
-
-[Guidebook](https://drive.google.com/file/d/1SGu0Xk4Oaie4YIGO2SzHA_pKl60Hmd__/view?usp=drive_link)
-
-### Dataset
-
-* [MCT Dataset](https://drive.google.com/drive/folders/1aPOgr81cCTDmF5YwQpT5dUolBJAqd8oS?usp=sharing)
-
-
-
-## KAMP Tempering Process Quality Prediction Dataset
-
-### Introduction 
-
-[Guidebook](https://drive.google.com/file/d/1EmZoI0NmyUZtslIu2zHJl0IIF9vg-FGq/view?usp=drive_link)
-
-### Dataset
-
-* [Tempering Dataset](https://drive.google.com/drive/folders/1j05glPUcERuz2FviOpp4YJwwNuDRQakl?usp=sharing)
 
