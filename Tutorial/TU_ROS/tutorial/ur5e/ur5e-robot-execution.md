@@ -10,8 +10,7 @@
 - `ur_python`
 - `ur5e_rg2_moveit_config`
 
-패키지가 없으면, [Github-Industrial-AI-Automation_HGU](https://github.com/hyKangHGU/Industrial-AI-Automation_HGU)에서 다운받아 주시면 됩니다.
-
+패키지가 없으면, [Github-Industrial-AI-Automation_HGU](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/tutorial/ros/ros-install-packages-for-robot.md) 자료의 Ohter packages 내용 참고해서 다운받아 주시면 됩니다.
 
 
 ## UR5e Robot Execution
@@ -24,8 +23,7 @@
 4) 컨트롤 박스의 랜선을 PC에 연결한다.
 5) PC에서 유선 네트워크 연결을 설정한다.
 
-더 자세한 내용은 [Github-Setting UR5e](https://github.com/hyKangHGU/Industrial-AI-Automation_HGU/blob/main/tutorial/setting-ur5e.md)에서 확인한다.
-
+더 자세한 내용은 [Github-Setting UR5e](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/tutorial/ur5e/ur5e-setting.md)에서 확인한다.
 
 
 ### Execution Flow
