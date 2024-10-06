@@ -3,7 +3,7 @@
 
 import rospy
 from sensor_msgs.msg import Image   # sensor_msgs 패키지로부터 Image 메시지 타입을 import
-from cv_bridge import CvBridge      # cv_bridge 라이브러리 : OpenCV 이미지와 ROS 메시지 간의 변환 가능
+from cv_bridge import CvBridge, CvBridgeError      # cv_bridge 라이브러리 : OpenCV 이미지와 ROS 메시지 간의 변환 가능
 import cv2                          # OpenCV 라이브러리
 import numpy as np
 
