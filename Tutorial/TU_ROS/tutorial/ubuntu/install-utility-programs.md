@@ -17,8 +17,8 @@ ubuntu의 terminal을 더 편리하게 사용할 수 있는 프로그램이다.
 - Install
 
 ```bash
-$ sudo apt update
-$ sudo apt install terminator
+sudo apt update
+sudo apt install terminator
 ```
 
 
@@ -48,9 +48,9 @@ $ sudo apt install terminator
 
 
 
-- 설치파일 다운로드 `.deb file` -  [vs code](code.visualstudio.com)
+- 설치파일 다운로드 `.deb file` -  [vs code](https://code.visualstudio.com/download)
 
-  ![image](https://user-images.githubusercontent.com/91526930/234137097-3f1d94a7-f951-47ab-a5ae-b5ff42808324.png)
+  ![image](https://github.com/user-attachments/assets/f2718160-304f-44f9-81a7-6c2d5b818829)
 
 
 
@@ -59,8 +59,8 @@ $ sudo apt install terminator
   다운로드한 파일은 `home/Downloads` 경로에 존재한다.
 
 ```bash
-$ cd ~/Downloads
-$ sudo dpkg -i code_*.deb
+cd ~/Downloads
+sudo dpkg -i code_*.deb
 ```
 
 
@@ -68,14 +68,14 @@ $ sudo dpkg -i code_*.deb
 ## Typora
 
 ```bash
-$ wget -qO - https://typora.io/linux/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/typora.asc
+wget -qO - https://typora.io/linux/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/typora.asc
 
 # add Typora's repository
-$ sudo add-apt-repository 'deb https://typora.io/linux ./'
-$ sudo apt-get update
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
 
 # install typora
-$ sudo apt-get install typora
+sudo apt-get install typora
 ```
 
 
@@ -87,8 +87,13 @@ $ sudo apt-get install typora
 github에서는 ubuntu에 Github Desktop 프로그램을 제공하지 않으나, 개인이 자체적으로 프로그램을 수정하여 배포한 프로그램이다.
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install snapd
-$ sudo snap install GitHubDesktop-linux-2.0.4-linux1.snap --classic --dangerous
+## Github Desktop for Ubuntu
+## Get the @shiftkey package feed
+wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
+
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
+
+## Install Github Desktop for Ubuntu
+sudo apt update && sudo apt install github-desktop
 ```
 

@@ -13,7 +13,7 @@ class Indy10_Move_With_Camera():
         self.indy10_interface = MoveGroupPythonInterface()
 
         init_pose_joints = [0, 0, tau/4, 0, tau/4, 0]          # tau = 2 * pi
-        self.indy10_interface.go_to_joint_state(init_pose_joints)
+        self.indy10_interface.go_to_joint_abs(init_pose_joints)
         self.msg_object_info = object_info()
         # self.msg_robot_state = robot_state()
         self.sub_object_info = rospy.Subscriber("object_info", object_info, self.detection_callback)

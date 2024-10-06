@@ -3,7 +3,7 @@
 - 실행하기
 
   ```bash
-  roslaunch rospy_tutorials talker_listener.py
+  roslaunch rospy_tutorials talker_listener.launch
   ```
 
   

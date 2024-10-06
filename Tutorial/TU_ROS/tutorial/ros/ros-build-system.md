@@ -365,6 +365,7 @@ int main(int argc, char **argv){
 
   ```xml
   <build_depend>message_generation</build_depend>
+  <build_depend>message_runtime</build_depend>
   <exec_depend>message_runtime</exec_depend>
   ```
 
@@ -519,19 +520,19 @@ int main(int argc, char **argv){
 ### 파이썬 버전
 
 ```bash
-roscore								# terminal 1
+roscore					# terminal 1
 rosrun my_tutorial listener.py 		# terminal 2
 rosrun my_tutorial talker.py		# terminal 3
-rqt_graph							# terminal 4 -> 노드와 토픽을 시각화하여 확인
+rqt_graph				# terminal 4 -> 노드와 토픽을 시각화하여 확인
 ```
 
 ### C++ 버전
 
 ```bash
-roscore								# terminal 1
+roscore					# terminal 1
 rosrun my_tutorial listener_cpp 	# terminal 2
 rosrun my_tutorial talker_cpp		# terminal 3
-rqt_graph							# terminal 4 -> 노드와 토픽을 시각화하여 확인
+rqt_graph				# terminal 4 -> 노드와 토픽을 시각화하여 확인
 ```
 
 
@@ -539,12 +540,24 @@ rqt_graph							# terminal 4 -> 노드와 토픽을 시각화하여 확인
 ### 파이썬 & C++ 
 
 ```bash
-roscore								# terminal 1
+roscore					# terminal 1
 rosrun my_tutorial listener.py 		# terminal 2
 rosrun my_tutorial talker_cpp		# terminal 3
 rosrun my_tutorial listener_cpp 	# terminal 4
-rqt_graph							# terminal 5 -> 노드와 토픽을 시각화하여 확인
+rqt_graph				# terminal 5 -> 노드와 토픽을 시각화하여 확인
 ```
+
+
+
+### [Error] Package Not Found
+
+``` cmake
+source ~/catkin_ws/devel/setup.bash
+```
+
+link~~
+
+
 
 
 
