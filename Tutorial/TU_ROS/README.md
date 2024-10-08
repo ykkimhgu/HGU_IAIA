@@ -23,7 +23,7 @@
 ### [ROS Packages for Robot](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/ros/ros-install-packages-for-robot.md)
 
 
-
+### [Anaconda & Deep Learning Framework](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/ubuntu/install-anaconda-dl-framework.md)
 
 
 
