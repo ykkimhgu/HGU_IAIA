@@ -13,8 +13,8 @@
 ### Execute Installer File (shell script)
 
 ```bash
-cd ~/Downloads			# 다운로드 위치로 이동
-bash Anaconda3-2022.10-Linux-x86_64.sh	# shell script 실
+cd ~/Downloads			  # 다운로드 위치로 이동
+bash Anaconda3-2022.10-Linux-x86_64.sh	# shell script 실행
 ```
 
 - 프로그램 설치 약관에 대한 내용 출력시, Enter를 계속해서 누르고 있으면 됨
