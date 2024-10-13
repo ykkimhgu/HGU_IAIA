@@ -205,6 +205,11 @@
   ls -ltr /dev/video*		# 연결된 카메라의 포트 확인
   ```
 
+- 카메라 포트 확인하기
+  ```bash
+  sudo apt-get install v4l-utils -y   # v4l2 비디오 출력장치 제어 드라이버 설치하기
+  v4l2-ctl --list-devices       # 카메라 포트 확인
+  ```
   
 
 ## Pointgrey Camera
