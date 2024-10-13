@@ -46,11 +46,11 @@ conda config --set auto_activate_base false
 # Update CONDA in Base
 conda update -n base -c defaults conda
 
-# Create myEnv=py39
-conda create -n py39 python=3.9.12
+# Create myEnv=py38
+conda create -n py38 python=3.8.10
 
 # Activate myEnv
-conda activate py39
+conda activate py38
 
 # Install Numpy, OpenCV, Matplot, Jupyter
 conda install -c anaconda seaborn jupyter
