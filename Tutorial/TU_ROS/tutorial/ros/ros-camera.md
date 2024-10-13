@@ -137,7 +137,7 @@
     # scripts/my_python_script
     src/talker.py
     src/listener.py
-    src/camera_capture.py		# 추가
+    src/camera.py		# 추가
     src/image_display.py		# 추가
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
   )
