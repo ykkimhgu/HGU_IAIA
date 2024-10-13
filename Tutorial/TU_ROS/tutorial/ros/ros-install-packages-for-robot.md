@@ -101,7 +101,7 @@ source devel/setup.bash
 
 ```bash
 cd ~/Desktop
-mkdir pakcages_from_git
+mkdir packages_from_git
 cd packages_from_git
 
 git init
