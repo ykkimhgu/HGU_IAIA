@@ -63,7 +63,7 @@ catkin_create_pkg my_tutorial std_msgs rospy roscpp
 
 
 
-## 2. 패키지 설정 파일(package.xml) 수정
+## 2. 패키지 설정 파일(package.xml)
 
 <img src="https://user-images.githubusercontent.com/91526930/235348353-581b5ef9-56ce-4f6d-9849-07f8a71d92b4.png" alt="image" style="zoom:67%;" />
 
@@ -97,7 +97,7 @@ catkin_create_pkg my_tutorial std_msgs rospy roscpp
 
 
 
-## 3. 빌드 설정 파일(CMakeList.txt) 수정
+## 3. 빌드 설정 파일(CMakeList.txt)
 
 아래의 내용은 `CMakeList.txt` 의 내용을 정리하기 위함이므로, 필요에 따라 수정하길 바람. (더 자세한 내용은 reference 자료에 있음)
 
@@ -427,7 +427,7 @@ int main(int argc, char **argv){
 - 파이썬 스크립트에 대해 실행권한 허용.
 
   ```bash
-  [위치] ~/catkin_make/src/my_tutorial/src
+  [위치] ~/catkin_ws/src/my_tutorial/src
   chmod +x talker.py
   chmod +x listener.py
   ```
@@ -555,7 +555,7 @@ rqt_graph				# terminal 5 -> 노드와 토픽을 시각화하여 확인
 source ~/catkin_ws/devel/setup.bash
 ```
 
-link~~
+
 
 
 
@@ -577,4 +577,7 @@ link~~
   </launch>
   ```
 
-  
+- `talker_listener.launch` 실행하기
+  ```xml
+  roslaunch my_tutorial talker_listener.launch
+  ```
