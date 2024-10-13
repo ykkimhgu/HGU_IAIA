@@ -5,10 +5,10 @@
 
 
 ```bash
-sudo apt-get install ros-noetic-moveit \
-			ros-noetic-industrial-core \
-			ros-noetic-moveit-visual-tools \
-			ros-noetic-joint-state-publisher-gui
+sudo apt-get install ros-noetic-moveit
+sudo apt-get install ros-noetic-industrial-core
+sudo apt-get install ros-noetic-moveit-visual-tools
+sudo apt-get install ros-noetic-joint-state-publisher-gui
 ```
 
 
@@ -18,12 +18,12 @@ sudo apt-get install ros-noetic-moveit \
 
 
 ```bash
-sudo apt-get install ros-noetic-gazebo-ros-pkgs \
-			ros-noetic-gazebo-ros-control \
-			ros-noetic-joint-state-controller \
-			ros-noetic-effort-controllers \
-			ros-noetic-position-controllers \
-			ros-noetic-joint-trajectory-controller
+sudo apt-get install ros-noetic-gazebo-ros-pkgs
+sudo apt-get install ros-noetic-gazebo-ros-control
+sudo apt-get install ros-noetic-joint-state-controller
+sudo apt-get install ros-noetic-effort-controllers
+sudo apt-get install ros-noetic-position-controllers
+sudo apt-get install ros-noetic-joint-trajectory-controller
 ```
 
 
