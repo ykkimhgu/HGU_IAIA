@@ -105,8 +105,11 @@ pip install torchsummary
 - 환경변수: ROS python 라이브러리 경로 추가
 
   ```bash
-  gedit ~/.bashrc        # 편집기 실행
-  export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:$PYTHONPATH  # 환경변수 추가
+  # 편집기 실행
+  gedit ~/.bashrc
+
+  # 환경변수 추가
+  export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:$PYTHONPATH
   ```
 
 
@@ -115,12 +118,11 @@ pip install torchsummary
 - 상황: 위의 설치과정 이후, `ex_pet_classifier.py` 예제 실행 시, 아래 메세지 출력됨.
 - 에러 메시지: `/lib/libgdal.so.26: undefined symbol: TIFFReadRGBATileExt, version LIBTIFF_4.0`
 - conda env에 `libtiff`의 버전이 적절하지 않아 발생하는 문제임.
-- 현재 설치된 libtiff의 버전 확인하기
+  
   ```bash
+  # 현재 설치된 libtiff의 버전 확인하기
   conda list libtiff
-  ```
 
-- libtiff 4.0으로 설치하기
-  ```bash
+  # libtiff 4.0으로 설치하기
   conda install -c conda-forge libtiff=4.0
   ```
