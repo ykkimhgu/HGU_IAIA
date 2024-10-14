@@ -89,3 +89,15 @@ conda install pytorch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 cpuonly -c py
 pip install torchsummary
 ```
 
+
+
+## 4. ROS 패키지 설치 및 환경구축
+
+```bash
+# Activate myEnv
+conda activate py38
+
+# install rospkg, catkin_pkg
+conda install rospkg catkin_pkg
+```
+
