@@ -87,7 +87,8 @@ sudo apt-get install typora
 
 - 설치파일 다운로드: [Install GithubDesktop](https://github.com/shiftkey/desktop/releases/)
 - 설치파일명: GitHubDesktop-linux-amd64-3.4.3-linux1.deb  (2024.10.14 기준)
-
+- unpack
+  
 ```bash
 cd ~/Downloads
 sudo dpkg -i GitHubDesktop-linux-amd64-3.4.3-linux1.deb
