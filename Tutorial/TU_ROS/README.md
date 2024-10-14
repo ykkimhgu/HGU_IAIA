@@ -45,7 +45,7 @@
 
 - [ROS 실행하기 (예제: turtlesim)](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/ros/ros-turtlesim.md)
 
-- [노드와 메세지 개념 이해하기](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/ros/ros-talker-listener.md)
+- [노드와 토픽 개념 이해하기](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/ros/ros-talker-listener.md)
     
 - [ROS 빌드 시스템](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/ros/ros-build-system.md)
   
