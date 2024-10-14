@@ -84,16 +84,12 @@ sudo apt-get install typora
 
 ## Github Desktop
 
-github에서는 ubuntu에 Github Desktop 프로그램을 제공하지 않으나, 개인이 자체적으로 프로그램을 수정하여 배포한 프로그램이다.
+
+- 설치파일 다운로드: [Install GithubDesktop](https://github.com/shiftkey/desktop/releases/)
+- 설치파일명: GitHubDesktop-linux-amd64-3.4.3-linux1.deb  (2024.10.14 기준)
 
 ```bash
-## Github Desktop for Ubuntu
-## Get the @shiftkey package feed
-wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
-
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
-
-## Install Github Desktop for Ubuntu
-sudo apt update && sudo apt install github-desktop
+cd ~/Downloads
+sudo dpkg -i GitHubDesktop-linux-amd64-3.4.3-linux1.deb
 ```
 
