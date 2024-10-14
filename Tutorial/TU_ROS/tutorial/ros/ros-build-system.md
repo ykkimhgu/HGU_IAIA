@@ -49,7 +49,7 @@
 ``` bash
 [위치] ~/catkin_ws/src
 catkin_create_pkg [패키지 이름] [의존성 패키지]
-catkin_create_pkg my_tutorial std_msgs rospy roscpp
+catkin_create_pkg tutorial std_msgs rospy roscpp
 ```
 
 <img src="https://user-images.githubusercontent.com/91526930/235348013-d1cbeda0-7d0c-461d-867f-8d4a966dd032.png" alt="image" style="zoom:50%;" />
@@ -106,7 +106,7 @@ catkin_create_pkg my_tutorial std_msgs rospy roscpp
 cmake_minimum_required(VERSION 3.0.2)
 
 # 패키지의 이름. package.xml에서 입력한 패키지 이름 그대로 사용
-project(my_tutorial)
+project(tutorial)
 
 # cakin 빌드 시 요구되는 패키지. 사용자가 생성한 패키지가 의존하는 다른 패키지를 먼저 설치하는 옵션
 find_package(catkin REQUIRED COMPONENTS
@@ -182,15 +182,15 @@ target_link_libraries(${PROJECT_NAME}_node
 
 ## 4. 메시지 파일 작성
 
-- `msg` 폴더 및 `tutorial_msg.msg` 파일 생성
+- `msg` 폴더 및 `simple.msg` 파일 생성
 
   ![image](https://user-images.githubusercontent.com/91526930/235349822-b71067ee-b147-4d00-a547-aaaf73d0315d.png)
 
-- `tutorial_msg.msg` 파일 내부에 다음과 같이 입력 후 저장.
+- `simple.msg` 파일 내부에 다음과 같이 입력 후 저장.
 
 ```
 time stamp
-int32 data
+int32 cnt
 ```
 
 
@@ -199,39 +199,39 @@ int32 data
 
 ### python 버전
 
-- `my_tutorial/src` 폴더 내부에 `talker.py`를 생성하여, 다음 내용을 입력.
+- `tutorial/src` 폴더 내부에 `talker.py`를 생성하여, 다음 내용을 입력.
 
   ```python
   #!/usr/bin/env python3	# 파이썬을 사용하기 위해 꼭 필요함.
   #-*- coding:utf-8 -*-	# 한글 주석을 작성하기 위해 필요함.
   
-  import rospy								# ROS 라이브러리
-  from my_tutorial.msg import tutorial_msg	# my_tutorial 패키지 내부에 정의된 msg 중 tutorial_msg를 참고하겠다는 의미.
+  import rospy					# ROS 라이브러리
+  from tutorial.msg import simple	# tutorial 패키지 내부에 정의된 msg 중 simple(msg)를 참고하겠다는 의미.
   
   def main():
       # 노드 초기화
       rospy.init_node('talker', anonymous=True)  # 노드 이름: talker
       
       # Publisher 초기화 및 변수 선언
-      pub = rospy.Publisher('chatter', tutorial_msg, queue_size=10) # topic: chatter, msg_type: tutorial_msg
+      pub = rospy.Publisher('chatter', simple, queue_size=10) # topic: chatter, msg_type: simple
       
       # 변수 선언
       rate = rospy.Rate(10) 	# 10 Hz 주기 설정
-      msg = tutorial_msg()	# 메시지 변수
+      simple_msg = simple()	# 메시지 변수
   
       count = 0
       
       # 프로그램 반복 실행
       while not rospy.is_shutdown():		# 프로그램 중단(shut down)되기 전까지 계속 실행
-          msg.stamp = rospy.Time.now()	# 현재 시간을 (메시지 변수).stamp에 저장
-          msg.data = count				# count 값을 (메시지 변수).data에 저장
+          simple_msg.stamp = rospy.Time.now()	# 현재 시간을 (메시지 변수).stamp에 저장
+          simple_msg.cnt = count				# count 값을 (메시지 변수).cnt에 저장
   
           # 터미널에 출력
-          rospy.loginfo("send time(sec) = %d", msg.stamp.secs)
-          rospy.loginfo("send msg = %d", msg.data)
+          rospy.loginfo("send time(sec) = %d", simple_msg.stamp.secs)
+          rospy.loginfo("send msg count = %d", simple_msg.cnt)
           
           # Publisher 변수를 통해 msg를 publish 함. 
-          pub.publish(msg)
+          pub.publish(simple_msg)
           
           rate.sleep()	# 사전에 정의된 주기(Hz)만큼 일시중지 (주기적으로 반복동작하기 위함.)
   
@@ -246,34 +246,34 @@ int32 data
 
 
 
-- `my_tutorial/src` 폴더 내부에 `listener.py`를 생성하여, 다음 내용을 입력.
-
-```python
-#!/usr/bin/env python3
-#-*- coding:utf-8 -*- 
-
-import rospy
-from my_tutorial.msg import tutorial_msg
-
-# Publisher가 생성한 topic을 Subscribing 하면서 callback 함수 실행
-def callback(data):		# topic 정보를 data 변수로 읽어들임.
-    # 터미널에 출력
-    rospy.loginfo("recieve time(sec) = %d", data.stamp.secs)
-    rospy.loginfo("recieve msg = %d", data.data)
-    
-def main():
-    # 노드 초기화
-    rospy.init_node('listener', anonymous=True)	# 노드 이름: listener
-
-    # Sbusciber 초기화 및 callback 함수 지정
-    rospy.Subscriber("chatter", tutorial_msg, callback)	# topic: chatter, msg_type: tutorial_msg
-
-    # 무한 루프 / 노드가 callback 이외의 어떤 일도 하지 않는다면 spin()함수 사용.
-    rospy.spin()
-
-if __name__ == '__main__':
-    main()
-```
+- `tutorial/src` 폴더 내부에 `listener.py`를 생성하여, 다음 내용을 입력.
+  
+  ```python
+  #!/usr/bin/env python3
+  #-*- coding:utf-8 -*- 
+  
+  import rospy
+  from tutorial.msg import simple
+  
+  # Publisher가 생성한 topic을 Subscribing 하면서 callback 함수 실행
+  def callback(msg):		# topic 정보를 msg 변수로 읽어들임.
+      # 터미널에 출력
+      rospy.loginfo("recieve time(sec) = %d", msg.stamp.secs)
+      rospy.loginfo("recieve msg count = %d", msg.cnt)
+      
+  def main():
+      # 노드 초기화
+      rospy.init_node('listener', anonymous=True)	# 노드 이름: listener
+  
+      # Sbusciber 초기화 및 callback 함수 지정
+      rospy.Subscriber("chatter", simple, callback)	# topic: chatter, msg_type: simple
+  
+      # 무한 루프 / 노드가 callback 이외의 어떤 일도 하지 않는다면 spin()함수 사용.
+      rospy.spin()
+  
+  if __name__ == '__main__':
+      main()
+  ```
 
 
 
@@ -281,77 +281,77 @@ if __name__ == '__main__':
 
 - reference: [ROS wiki - publish & subscribe](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
 
-- `my_tutorial/src` 폴더 내부에 `talker_cpp.cpp`를 생성하여, 다음 내용을 입력.
+- `tutorial/src` 폴더 내부에 `talker_cpp.cpp`를 생성하여, 다음 내용을 입력.
 
-```cpp
-#include "ros/ros.h"					// ROS 기본 헤더 파일
-#include "my_tutorial/tutorial_msg.h"	// 메시지 파일의 헤더. 빌드 후 자동 생성됨.
-
-int main(int argc, char **argv){
-  // 노드 초기화
-  ros::init(argc, argv, "talker");     // 노드 이름: talker
-  ros::NodeHandle nh;                  // ROS 시스템과 통신을 위한 노드 핸들
+  ```cpp
+  #include "ros/ros.h"					// ROS 기본 헤더 파일
+  #include "tutorial/simple.h"	// 메시지 파일의 헤더. 빌드 후 자동 생성됨.
   
-  // Publisher 초기화 및 변수 선언 (노드 핸들을 이용하여 publisher 초기화)
-  // my_tutorial 패키지에 정의된 tutorial_msg 타입의 '/chatter' 토픽 생성 (queue 사이즈 = 100개)
-  // 만약, 표준 메시지를 사용한다면 (예) <std_msgs::String>
-  ros::Publisher pub_chatter = nh.advertise<my_tutorial::tutorial_msg>("/chatter", 100); 
-  
-  // 변수 초기화  
-  ros::Rate loop_rate(10);			// 주기를 10Hz로 설정
-  my_tutorial::tutorial_msg msg;	// 메시지 변수 선언
-  
-  int count = 0;
-
-  while (ros::ok()){			// 종료 전까지 반복 수행
-    msg.stamp = ros::Time::now();	// 메시지 변수 내 stamp에 현 시간 입력
-    msg.data  = count;				// 메시지 변수 내 data에 count 입력
-
-    // 터미널에 출력
-    ROS_INFO("send time(sec) = %d", msg.stamp.sec);
-    ROS_INFO("send msg = %d", msg.data);
-
-    // publisher 변수를 통해 msg를 publish 함
-    pub_chatter.publish(msg);
-
-    loop_rate.sleep();		// 사전에 정의된 주기만큼 일시정지(sleep)
-
-    ++count;
-  }
-
-  return 0;
-}
-```
-
-
-
-- `my_tutorial/src` 폴더 내부에 `listener_cpp.cpp`를 생성하여, 다음 내용을 입력.
-
-```cpp
-#include "ros/ros.h"
-#include "my_tutorial/tutorial_msg.h" 
-
-// Publisher가 생성한 topic을 Subscribing 하면서 callback 함수 실행
-void chatterCallback(const my_tutorial::tutorial_msg::ConstPtr& msg){ // 토픽 정보를 msg 포인터 파라미터로 읽어드림.
-  // 터미널 출력
-  ROS_INFO("recieve time(sec) = %d", msg->stamp.sec);
-  ROS_INFO("recieve msg = %d", msg->data);
-}
-
-int main(int argc, char **argv){
-  // 노드 초기화
-  ros::init(argc, argv, "listener");	// 노드 이름: listener
-  ros::NodeHandle nh;					// ROS 시스템과 통신을 위한 노드 핸들
+  int main(int argc, char **argv){
+    // 노드 초기화
+    ros::init(argc, argv, "talker");     // 노드 이름: talker
+    ros::NodeHandle nh;                  // ROS 시스템과 통신을 위한 노드 핸들
     
-  // Subscriber 초기화 및 변수 선언, callback 함수 지정
-  ros::Subscriber sub = nh.subscribe("/chatter", 100, chatterCallback);	// 토픽 이름: '/chatter', queue size = 100
+    // Publisher 초기화 및 변수 선언 (노드 핸들을 이용하여 publisher 초기화)
+    // tutorial 패키지에 정의된 simple 타입의 메시지인 '/chatter' 토픽 생성 (queue 사이즈 = 100개)
+    // 만약, 표준 메시지를 사용한다면 (예) <std_msgs::String>
+    ros::Publisher pub_chatter = nh.advertise<tutorial::simple>("/chatter", 100); 
+    
+    // 변수 초기화  
+    ros::Rate loop_rate(10);			// 주기를 10Hz로 설정
+    tutorial::simple msg;	// 메시지 변수 선언
+    
+    int count = 0;
+  
+    while (ros::ok()){			// 종료 전까지 반복 수행
+      msg.stamp = ros::Time::now();	// 메시지 변수 내 stamp에 현 시간 입력
+      msg.cnt  = count;				// 메시지 변수 내 cnt에 count 입력
+  
+      // 터미널에 출력
+      ROS_INFO("send time(sec) = %d", msg.stamp.sec);
+      ROS_INFO("send msg count = %d", msg.cnt);
+  
+      // publisher 변수를 통해 msg를 publish 함
+      pub_chatter.publish(msg);
+  
+      loop_rate.sleep();		// 사전에 정의된 주기만큼 일시정지(sleep)
+  
+      ++count;
+    }
+  
+    return 0;
+  }
+  ```
 
-  // 무한 루프 / 노드가 callback 이외의 어떤 일도 하지 않는다면 spin()함수 사용.
-  ros::spin();
 
-  return 0;
-}
-```
+
+- `tutorial/src` 폴더 내부에 `listener_cpp.cpp`를 생성하여, 다음 내용을 입력.
+
+  ```cpp
+  #include "ros/ros.h"
+  #include "tutorial/simple.h" 
+  
+  // Publisher가 생성한 topic을 Subscribing 하면서 callback 함수 실행
+  void chatterCallback(const tutorial::simple::ConstPtr& msg){ // 토픽 정보를 msg 포인터 파라미터로 읽어드림.
+    // 터미널 출력
+    ROS_INFO("recieve time(sec) = %d", msg->stamp.sec);
+    ROS_INFO("recieve msg count = %d", msg->cnt);
+  }
+  
+  int main(int argc, char **argv){
+    // 노드 초기화
+    ros::init(argc, argv, "listener");	// 노드 이름: listener
+    ros::NodeHandle nh;					// ROS 시스템과 통신을 위한 노드 핸들
+      
+    // Subscriber 초기화 및 변수 선언, callback 함수 지정
+    ros::Subscriber sub = nh.subscribe("/chatter", 100, chatterCallback);	// 토픽 이름: '/chatter', queue size = 100
+  
+    // 무한 루프 / 노드가 callback 이외의 어떤 일도 하지 않는다면 spin()함수 사용.
+    ros::spin();
+  
+    return 0;
+  }
+  ```
 
 
 
@@ -373,7 +373,7 @@ int main(int argc, char **argv){
 
   ```cmake
   cmake_minimum_required(VERSION 3.0.2)
-  project(my_tutorial)
+  project(tutorial)
   
   # message_generation 추가
   find_package(catkin REQUIRED COMPONENTS
@@ -386,7 +386,7 @@ int main(int argc, char **argv){
   # tutorial_msg.msg 추가
   add_message_files(
     FILES
-    tutorial_msg.msg
+    simple.msg
   )
   
   # 주석 풀기 
@@ -399,7 +399,7 @@ int main(int argc, char **argv){
   # message_runtime 추가
   catkin_package(
   #  INCLUDE_DIRS include
-   LIBRARIES my_tutorial
+   LIBRARIES tutorial
    CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
   #  DEPENDS system_lib
   )
@@ -427,7 +427,7 @@ int main(int argc, char **argv){
 - 파이썬 스크립트에 대해 실행권한 허용.
 
   ```bash
-  [위치] ~/catkin_ws/src/my_tutorial/src
+  [위치] ~/catkin_ws/src/tutorial/src
   chmod +x talker.py
   chmod +x listener.py
   ```
@@ -472,7 +472,7 @@ int main(int argc, char **argv){
   # message_runtime 추가
   catkin_package(
   #  INCLUDE_DIRS include
-  # LIBRARIES my_tutorial
+  # LIBRARIES tutorial
    CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
   #  DEPENDS system_lib
   )
@@ -521,8 +521,8 @@ int main(int argc, char **argv){
 
 ```bash
 roscore					# terminal 1
-rosrun my_tutorial listener.py 		# terminal 2
-rosrun my_tutorial talker.py		# terminal 3
+rosrun tutorial listener.py 		# terminal 2
+rosrun tutorial talker.py		# terminal 3
 rqt_graph				# terminal 4 -> 노드와 토픽을 시각화하여 확인
 ```
 
@@ -530,8 +530,8 @@ rqt_graph				# terminal 4 -> 노드와 토픽을 시각화하여 확인
 
 ```bash
 roscore					# terminal 1
-rosrun my_tutorial listener_cpp 	# terminal 2
-rosrun my_tutorial talker_cpp		# terminal 3
+rosrun tutorial listener_cpp 	# terminal 2
+rosrun tutorial talker_cpp		# terminal 3
 rqt_graph				# terminal 4 -> 노드와 토픽을 시각화하여 확인
 ```
 
@@ -541,9 +541,9 @@ rqt_graph				# terminal 4 -> 노드와 토픽을 시각화하여 확인
 
 ```bash
 roscore					# terminal 1
-rosrun my_tutorial listener.py 		# terminal 2
-rosrun my_tutorial talker_cpp		# terminal 3
-rosrun my_tutorial listener_cpp 	# terminal 4
+rosrun tutorial listener.py 		# terminal 2
+rosrun tutorial talker_cpp		# terminal 3
+rosrun tutorial listener_cpp 	# terminal 4
 rqt_graph				# terminal 5 -> 노드와 토픽을 시각화하여 확인
 ```
 
@@ -568,16 +568,16 @@ source ~/catkin_ws/devel/setup.bash
   ```xml
   <launch>
     <!-- python 버전 -->
-    <node name="listener" pkg="my_tutorial" type="listener.py" output="screen"/>
-    <node name="talker" pkg="my_tutorial" type="talker.py" output="screen"/>
+    <node name="listener" pkg="tutorial" type="listener.py" output="screen"/>
+    <node name="talker" pkg="tutorial" type="talker.py" output="screen"/>
     
     <!-- c++ 버전 -->
-    <node name="listener_cpp" pkg="my_tutorial" type="listener_cpp" output="screen"/>
-    <node name="talker_cpp" pkg="my_tutorial" type="talker_cpp" output="screen"/>
+    <node name="listener_cpp" pkg="tutorial" type="listener_cpp" output="screen"/>
+    <node name="talker_cpp" pkg="tutorial" type="talker_cpp" output="screen"/>
   </launch>
   ```
 
 - `talker_listener.launch` 실행하기
   ```xml
-  roslaunch my_tutorial talker_listener.launch
+  roslaunch tutorial talker_listener.launch
   ```
