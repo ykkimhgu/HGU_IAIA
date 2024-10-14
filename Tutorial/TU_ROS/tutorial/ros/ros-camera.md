@@ -3,14 +3,14 @@
 - ROS는 카메라로부터 영상을 추출하여 이미지 처리가 가능함.
 - 내장 카메라, USB 카메라 연결하여 영상이미지를 추출하는 실습 진행
 - 이미지에 대한 메시지 송수신 관계를 파악.
-
+- launch 파일 구성 및 파라미터 입력.
 
 
 ## Built-in Camera
 
 - 내장 카메라에 대해서는 별도의 설치 작업이 필요하지 않음.
 
-- `my_tutorial/src` 폴더 내부에 `camera.py` 파일 생성
+- `tutorial/src` 폴더 내부에 `camera.py` 파일 생성
 
   ```python
   #!/usr/bin/env python3
@@ -24,13 +24,15 @@
   class CameraNode:
   
       def __init__(self):
+          rospy.init_node('camera_node', anonymous=True)  # 노드 이름 "camera_node"로 초기화
           self.bridge = CvBridge()                # cv_bridge 객체 생성
+  
           # "camera/image_raw"라는 토픽으로 메시지를 publish할 publisher 객체 생성
           self.image_pub = rospy.Publisher("camera/image_raw",Image,queue_size=1)    
+          
           self.cap = cv2.VideoCapture(0)          # 카메라 연결을 위한 VideoCapture 객체 생성
   
       def run(self):
-          rospy.init_node('camera_node', anonymous=True)  # 노드 이름 "camera_node"로 초기화
           rate = rospy.Rate(30)                           # 루프 실행 주기 : 30hz
           while not rospy.is_shutdown():                  # ROS가 종료되지 않은 동안
               ret, frame = self.cap.read()                # 카메라로부터 이미지를 읽음
@@ -53,7 +55,7 @@
 
   
 
-- `my_tutorial/src` 폴더 내부에 `image_display.py` 파일 생성
+- `tutorial/src` 폴더 내부에 `image_display.py` 파일 생성
 
   ```python
   #!/usr/bin/env python3
@@ -114,9 +116,9 @@
     roscpp
     rospy
     std_msgs
+    message_generation
     sensor_msgs	# 추가
     cv_bridge		# 추가
-    message_generation
   )
   
   generate_messages(
@@ -128,8 +130,8 @@
   
   catkin_package(
   #  INCLUDE_DIRS include
-   LIBRARIES my_tutorial
-   CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs cv_bridge message_runtime
+   LIBRARIES tutorial
+   CATKIN_DEPENDS roscpp rospy std_msgs message_runtime sensor_msgs cv_bridge
   #  DEPENDS system_lib
   )
   
@@ -156,7 +158,7 @@
 - 파이썬 스크립트에 대해 실행권한 허용.
 
   ```bash
-  [위치] ~/catkin_make/src/my_tutorial/src
+  [위치] ~/catkin_make/src/tutorial/src
   chmod +x camera.py
   chmod +x image_display.py
   ```
@@ -167,8 +169,8 @@
 
   ```bash
   roscore									# terminal 1
-  rosrun my_tutorial camera.py			# terminal 2
-  rosrun my_tutorial image_display.py		# terminal 3
+  rosrun tutorial camera.py			# terminal 2
+  rosrun tutorial image_display.py		# terminal 3
   rqt_graph								# terminal 4
   ```
 
@@ -180,8 +182,77 @@
   sudo apt-get install ros-noetic-cv-bridge
   ```
 
-  
+## Launch파일로 parameter 입력받도록 코드 수정하기
 
+- `/launch` 폴더 내부에 `example_show_camera.launch` 파일 생성하기
+  `<arg ~ />`: 파라미터 변수 선언
+  `<param ~ />`: 파라미터 변수의 값을 할당하기
+  
+  ```python
+  <launch>
+    <!-- Argument for the camera number, default to 0 -->
+    <arg name="camera_number" default="0"/>
+  
+    <node name="camera"           pkg="tutorial" type="camera.py" output="screen">
+      <param name="camera_number" value="$(arg camera_number)" />
+    </node>
+    <node name="image_display"    pkg="tutorial" type="image_display.py" output="screen"/>
+    
+  </launch>
+  ```
+
+- `camera.py` 수정하기
+   `rospy.get_param()`을 통해 parameter인 `camera_number`를 가져오기
+
+  ```python
+  #!/usr/bin/env python3
+  #-*- coding:utf-8 -*-
+  
+  import rospy
+  import cv2
+  from sensor_msgs.msg import Image               # sensor_msg 패키지로부터 Image type을 import함
+  from cv_bridge import CvBridge, CvBridgeError   # cv_bridge 라이브러리 : OpenCV 이미지와 ROS 메시지 간의 변환 가능
+  
+  class CameraNode:
+  
+      def __init__(self):
+          rospy.init_node('camera_node', anonymous=True)  # 노드 이름 "camera_node"로 초기화
+          self.bridge = CvBridge()                # cv_bridge 객체 생성
+  
+          # Get camera number from ROS parameter, default to 0
+          camera_number = rospy.get_param('~camera_number', 0)
+          rospy.loginfo(f"Camera number received: {camera_number}")
+  
+          # "camera/image_raw"라는 토픽으로 메시지를 publish할 publisher 객체 생성
+          self.image_pub = rospy.Publisher("camera/image_raw",Image,queue_size=1)    
+          
+          self.cap = cv2.VideoCapture(camera_number)          # 카메라 연결을 위한 VideoCapture 객체 생성
+  
+      def run(self):
+          rate = rospy.Rate(30)                           # 루프 실행 주기 : 30hz
+          while not rospy.is_shutdown():                  # ROS가 종료되지 않은 동안
+              ret, frame = self.cap.read()                # 카메라로부터 이미지를 읽음
+              if ret:                                     # 이미지가 정상적으로 읽혀진 경우
+                  try:
+                      # 읽어들인 이미지를 ROS Image 메시지로 변환하여 토픽으로 publish
+                      self.image_pub.publish(self.bridge.cv2_to_imgmsg(frame, "bgr8"))
+                  
+                  except CvBridgeError as e:
+                      print(e)                            # CvBridge 변환 예외 처리
+              rate.sleep()                                # 지정된 루프 실행 주기에 따라 대기
+  
+  if __name__ == '__main__':
+      try:
+          camera = CameraNode()       # CameraNode 객체 생성
+          camera.run()                # run 메서드 실행
+      except rospy.ROSInterruptException:
+          pass
+  ```
+
+- launch 파일 실행 예시
+  ```bash
+  roslaunch tutorial example_show_camera.launch camera_number:=0
+  ```
 
 
 ## USB Camera
@@ -258,7 +329,7 @@
   현재, 여러 노드와 토픽이 생성된 것을 확인할 수 있음.  특히,`/camera/image_raw`토픽은 우리가 알고 있는 msg_type이므로, subscribing을 시도해볼 수 있음.
 
   ```bash
-  rosrun my_tutorial image_display.py
+  rosrun tutorial image_display.py
   ```
 
   <img src="https://user-images.githubusercontent.com/91526930/235361805-789a28b5-9876-4041-9d36-c523611271b3.png" alt="image" style="zoom:80%;" />
