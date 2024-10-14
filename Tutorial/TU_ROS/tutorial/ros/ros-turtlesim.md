@@ -1,6 +1,6 @@
-# Turtlesim
+# ROS 실행하기
 
-talker & listener를 통해 배운 노드와 메세지 개념을 turtlesim 예제를 통해 적용해보자.
+turtlesim 예제를 통해, 설치한 ROS를 실행해보기
 
 - Ros master 실행
 
