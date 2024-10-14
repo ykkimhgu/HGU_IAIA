@@ -72,7 +72,6 @@ pip install opencv-python
 conda install -c anaconda cudatoolkit=11.8 cudnn 
 
 # Install PyTorch
-conda install -c anaconda cudatoolkit=11.8 cudnn seaborn jupyter
 conda install pytorch=2.1 torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install torchsummary
 
