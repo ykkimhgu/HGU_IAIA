@@ -188,7 +188,8 @@
   
   - `<arg ~ />`: 파라미터 변수 선언
   - `<param ~ />`: 파라미터 변수의 값을 할당하기
-  
+
+
   ```python
   <launch>
     <!-- Argument for the camera number, default to 0 -->
@@ -205,6 +206,7 @@
 - `camera.py` 수정하기
 
   - `rospy.get_param()`을 통해 parameter인 `camera_number`를 가져오기
+
 
   ```python
   #!/usr/bin/env python3
