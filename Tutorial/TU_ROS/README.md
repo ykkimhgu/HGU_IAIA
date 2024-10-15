@@ -76,6 +76,8 @@
 
 - [한/영 키 설정](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/trouble%20shooting/trouble-hangeul-key.md)
 
+- [bashrc setting](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/tutorial/ros/ros-basrhc-settings.md)
+
 - 윈도우 시간 설정
 
 
