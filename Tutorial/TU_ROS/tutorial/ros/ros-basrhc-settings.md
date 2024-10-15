@@ -34,7 +34,7 @@ export PYTHONPATH=/home/hy/catkin_ws/devel/lib/python3/dist-packages:/opt/ros/no
 function act_ros {
     source /opt/ros/noetic/setup.bash
     source ~/catkin_ws/devel/setup.bash
-    export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:/home/hy/catkin_ws/devel/lib/python3/dist-packages
+    export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:~/catkin_ws/devel/lib/python3/dist-packages
     echo "ROS activated"
 }
 ```
@@ -49,7 +49,7 @@ function act_ros {
 # 자동으로 Anaconda 환경 활성화
 function act_conda {
     conda activate base
-    export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:/home/hy/catkin_ws/devel/lib/python3/dist-packages:/home/hy/anaconda3/envs/py38/lib/python3.8/site-packages
+    export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:~/catkin_ws/devel/lib/python3/dist-packages:~/anaconda3/envs/py38/lib/python3.8/site-packages
     echo "conda activated"
 }
 ```
