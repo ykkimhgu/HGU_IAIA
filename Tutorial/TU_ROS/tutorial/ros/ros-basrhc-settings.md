@@ -5,10 +5,15 @@
 ## bashrc 파일
 
 -  terminal 실행마다, 자동으로 초기화하기 위한 파일 script임.
+
 - 초기화 옵션, 환경변수, 함수 등이 기록됨.
 
 - `home` 디렉토리에 존재
 
+- 편집하기
+  ```bash
+  gedit ~/.bashrc
+  ```
 
 
 ## ROS 설치 후,
