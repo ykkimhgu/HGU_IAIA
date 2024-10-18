@@ -184,7 +184,7 @@
 
 ## Launch파일로 parameter 입력받도록 코드 수정하기
 
-- `tutorial/launch` 폴더 내부에 `example_show_camera.launch` 파일 생성하기
+- `tutorial/launch` 폴더 내부에 `image_display.launch` 파일 생성하기
   
   - `<arg ~ />`: 파라미터 변수 선언
   - `<param ~ />`: 파라미터 변수의 값을 할당하기
@@ -256,7 +256,7 @@
 - launch 파일 실행 예시
 
   ```bash
-  roslaunch tutorial example_show_camera.launch camera_number:=0
+  roslaunch tutorial image_display.launch camera_number:=0
   ```
 
 
