@@ -53,7 +53,7 @@
   
 - [카메라 연결 및 실행](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS/tutorial/ros/ros-camera.md)
   
-
+- [Pytorch 예제 실행](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/tutorial/ros/ros-pytorch-example.md)
 
 
 ### 3. Simulation
