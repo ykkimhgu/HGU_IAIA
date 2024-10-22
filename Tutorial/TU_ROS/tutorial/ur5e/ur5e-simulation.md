@@ -19,7 +19,7 @@ roslaunch ur_gazebo ur5e_bringup.launch
 roslaunch ur5e_moveit_config moveit_planning_execution.launch sim:=true
 rosrun ur_python camera.py
 rosrun ur_python image_display.py
-rosrun ur_python pet_classifier.py
+rosrun ur_python pet_classifier.py  # conda environment
 rosrun ur_python pet_feeder.py
 ```
 
