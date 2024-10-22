@@ -21,9 +21,9 @@
 
 1) 로봇의 전원을 켠다.
 2) PC의 WiFi를 sslab으로 연결한다.
-   - pw: `********`
+   - pw: `nth115!!`
 3) 로봇의 IP 주소를 확인한다.
-   - No.1 : 192.168.0.6
+   - No.1: 192.168.0.8
    - No.2: 192.168.0.9
 
 
@@ -31,7 +31,7 @@
 ### Demo 1: Simple Move
 
 ```bash
-roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.6
+roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.8
 rosrun indy_driver demo_move.py
 ```
 
@@ -40,7 +40,7 @@ rosrun indy_driver demo_move.py
 ### Demo 2: Gripper Operation
 
 ```bash
-roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.6
+roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.8
 rosrun indy_driver demo_grip.py
 ```
 
@@ -49,7 +49,7 @@ rosrun indy_driver demo_grip.py
 ### Demo 3: Move with Camera
 
 ```bash
-roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.6
+roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.8
 rosrun indy_driver camera.py
 rosrun indy_driver demo_move_with_camera.py
 rosrun indy_driver image_processing.py
