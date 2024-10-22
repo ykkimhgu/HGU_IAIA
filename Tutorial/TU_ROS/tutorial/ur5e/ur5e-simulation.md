@@ -12,7 +12,7 @@ rosrun ur_python demo_move.py
 
 
 
-### Demo 2: Move with Camera
+### Demo 2: Pet Feeder Robot
 
 ```bash
 roslaunch ur_gazebo ur5e_bringup.launch
