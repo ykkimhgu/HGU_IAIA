@@ -147,7 +147,7 @@ rosrun ur_python pet_feeder.py
           self.sub_pet_class = rospy.Subscriber("pet_classifier/pet_info", pet_info, self.feed)  # camera/image_raw 토픽에서 Image 메시지 수신
   
           # Robot initialization
-          self.robot = MoveGroupPythonInterface(real="sim")
+          self.robot = MoveGroupPythonInterface(real="real")
           self.robot.move_to_standby()
           self.robot.grip_off()
       
