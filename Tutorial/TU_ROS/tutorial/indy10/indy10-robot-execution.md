@@ -44,6 +44,16 @@ roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.16
 rosrun indy_driver demo_grip.py
 ```
 
+- gripper 사용 설정
+     - `demo_grip.py`
+         ```python
+         indy10 = MoveGroupPythonInterface(real=True, gripper="Vaccum")
+         ```
+      - `move_group_python_interface.py` 내 클래스 참조
+         ```python
+         real = True
+         gripper = "Gripper" or "Vaccum"
+        ```
 
 
 ### Demo 3: Pick & Place
@@ -52,17 +62,3 @@ rosrun indy_driver demo_grip.py
 roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.8
 rosrun indy_driver demo_pick_and_place.py
 ```
-
-
-
-
-
-`demo_grip.py`
-
-```python
-indy10_interface = MoveGroupPythonInterface(real=True, gripper="Vaccum")
-```
-
-- gripper 사용시, `MoveGroupPythonInterface()` class 초기화시 다음과 같이 설정해야한다.
-  - real = True
-  - gripper = "Gripper" or "Vaccum" 
