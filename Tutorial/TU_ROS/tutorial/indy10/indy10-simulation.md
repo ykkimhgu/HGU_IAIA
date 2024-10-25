@@ -9,7 +9,11 @@ roslaunch indy10_gazebo indy10_moveit_gazebo.launch
 rosrun indy_driver demo_move.py
 ```
 
+- `move_group_python_interface.py` 수정하기: [소스코드](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/packages/indy_driver/src/move_group_python_interface.py)
+
+
 - `demo_move.py`
+
   ```python
   #!/usr/bin/env python3
   #-*- coding:utf-8 -*- 
@@ -64,7 +68,6 @@ rosrun indy_driver demo_move.py
       main()
   ```
 
-- move_group_python_interface.py` 수정하기: [소스코드](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/packages/indy_driver/src/move_group_python_interface.py)
 
 
 
