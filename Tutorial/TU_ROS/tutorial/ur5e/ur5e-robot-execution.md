@@ -157,13 +157,13 @@ rosrun ur_python pet_feeder.py
               
               # point A
               # go_to_pose_abs(self, absolute_xyz, absolute_rpy)
-              self.robot.go_to_joint_state(feed_info["pt_A_top"][pet_info.name])
+              self.robot.go_to_joint_abs(feed_info["pt_A_top"][pet_info.name])
               self.robot.go_to_pose_rel(feed_info["down_A"]['rel_xyz'], feed_info["down_A"]['rel_rpy'])
               self.robot.grip_on()
               self.robot.go_to_pose_rel(feed_info["up_A"]['rel_xyz'], feed_info["up_A"]['rel_rpy'])
   
               # point B
-              self.robot.go_to_joint_state(feed_info["pt_B_top"][pet_info.name])
+              self.robot.go_to_joint_abs(feed_info["pt_B_top"][pet_info.name])
               self.robot.go_to_pose_rel(feed_info["down_B"]['rel_xyz'], feed_info["down_B"]['rel_rpy'])
               self.robot.grip_off()
               self.robot.go_to_pose_rel(feed_info["up_B"]['rel_xyz'], feed_info["up_B"]['rel_rpy'])
