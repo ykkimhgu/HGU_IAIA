@@ -131,7 +131,7 @@ rosrun indy_driver demo_pick_and_place.py
           indy10.go_to_pose_rel(rel_xyz, rel_rpy)
   
           # grip
-          # indy10.grip_on()
+          # indy10.grip_off()
   
           # go to B top
           rel_xyz = [0.0, 0.0, 0.22]
