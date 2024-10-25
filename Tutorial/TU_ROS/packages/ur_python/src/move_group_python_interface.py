@@ -89,7 +89,7 @@ class MoveGroupPythonInterface(object):
     def move_to_standby(self):
         # self.manipulator.set_named_target("stand_by")
         print("============ Go to 'stand_by' pose")
-        self.go_to_joint_state([tau/4, -tau/4, tau/4, -tau/4, -tau/4, 0.0])
+        self.go_to_joint_abs([tau/4, -tau/4, tau/4, -tau/4, -tau/4, 0.0])
 
         self.manipulator.go(wait=True)
         self.manipulator.stop()
