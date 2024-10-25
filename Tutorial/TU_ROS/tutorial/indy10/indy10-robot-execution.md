@@ -45,15 +45,17 @@ rosrun indy_driver demo_grip.py
 ```
 
 - gripper 사용 설정
-     - `demo_grip.py`
-         ```python
-         indy10 = MoveGroupPythonInterface(real=True, gripper="Vaccum")
-         ```
-      - `move_group_python_interface.py` 내 클래스 참조
-         ```python
-         real = True
-         gripper = "Gripper" or "Vaccum"
-        ```
+
+   - `demo_grip.py`
+  
+      ```python
+      indy10 = MoveGroupPythonInterface(real=True, gripper="Vaccum")
+      ```
+   - `move_group_python_interface.py` 내 클래스 참조
+      ```python
+      real = True
+      gripper = "Gripper" or "Vaccum"
+      ```
 
 
 ### Demo 3: Pick & Place
