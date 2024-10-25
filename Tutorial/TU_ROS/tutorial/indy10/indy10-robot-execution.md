@@ -46,13 +46,11 @@ rosrun indy_driver demo_grip.py
 
 
 
-### Demo 3: Move with Camera
+### Demo 3: Pick & Place
 
 ```bash
 roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.8
-rosrun indy_driver camera.py
-rosrun indy_driver demo_move_with_camera.py
-rosrun indy_driver image_processing.py
+rosrun indy_driver demo_pick_and_place.py
 ```
 
 
