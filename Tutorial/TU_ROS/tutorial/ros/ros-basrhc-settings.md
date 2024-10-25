@@ -19,6 +19,7 @@
 ## ROS 설치 후,
 
 ```bash
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtiff.so.5    # libtiff 버전 충돌 방지(ROS <-> Conda)
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
