@@ -64,7 +64,7 @@ rosrun indy_driver demo_move.py
       main()
   ```
 
-- move_group_python_interface.py` 수정하기 [소스코드](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/packages/indy_driver/src/move_group_python_interface.py)
+- move_group_python_interface.py` 수정하기: [소스코드](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/packages/indy_driver/src/move_group_python_interface.py)
 
 ### Demo 2: Pet Feeder Robot
 
