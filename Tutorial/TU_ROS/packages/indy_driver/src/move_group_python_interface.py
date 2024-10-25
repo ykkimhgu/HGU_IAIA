@@ -88,6 +88,17 @@ class MoveGroupPythonInterface(object):
         if real == True:
             self.gripper_init(gripper)
 
+    def move_to_standby(self):
+        # self.manipulator.set_named_target("stand_by")
+        print("============ Go to 'stand_by' pose")
+        self.go_to_joint_abs([0, 0, tau/4, 0, tau/4, 0])
+
+        self.manipulator.go(wait=True)
+        self.manipulator.stop()
+        print("============ Printing robot state")
+        print(self.robot.get_current_state())
+
+
     def gripper_init(self, gripper="Gripper"):
         self.pub_grip_state     = rospy.Publisher("grip_state", grip_state, queue_size=10)
         self.pub_grip_command   = rospy.Publisher("grip_command", grip_command, queue_size=10)
