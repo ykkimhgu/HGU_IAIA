@@ -15,7 +15,7 @@ def main():
 
         input("============ Press `Enter` to execute a movement using a joint state goal ...")
         target_joints = [-tau/4, -tau/4, -tau/4, -tau/4, tau/4, 0.0]          # tau = 2 * pi
-        ur5e.go_to_joint_state(target_joints)
+        ur5e.go_to_joint_abs(target_joints)
 
         input("============ Press `Enter` to execute a movement using a relative pose ...")
         target_pose_rel_xyz = [-.2, -0.1, 0.0]
