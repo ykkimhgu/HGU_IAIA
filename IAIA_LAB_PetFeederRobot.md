@@ -14,6 +14,10 @@ Industrial AI & Automation 2024
 
 
 
+
+
+
+
 ## Introduction
 
 
@@ -22,7 +26,11 @@ This lab aims to implement an automated Pet Feeder Robot using ROS, with a pet c
 
 
 
-[그림]
+![image](https://github.com/user-attachments/assets/68f36df1-60f4-46e9-8693-afc41855acf7)
+
+
+
+
 
 
 
@@ -46,7 +54,9 @@ This lab aims to implement an automated Pet Feeder Robot using ROS, with a pet c
 
 ## Pet Feeder Robot System
 
-그림으로
+
+
+![image](https://github.com/user-attachments/assets/94a97c2d-583c-49eb-878c-e027d015ae6f)
 
 
 
@@ -55,6 +65,8 @@ This lab aims to implement an automated Pet Feeder Robot using ROS, with a pet c
 
 
 ## Procedure
+
+
 
 
 
@@ -79,6 +91,10 @@ The main nodes for this robotic system are listed below. Briefly explain the rol
 
 
 
+
+
+
+
 ### ROS Programming
 
 - write source code for nodes in `catkin_ws/src/indy_driver/src`
@@ -87,6 +103,7 @@ The main nodes for this robotic system are listed below. Briefly explain the rol
   - `image_display.py`
   - `pet_classifier.py`
   - `pet_feeder.py`
+  - The source codes were provided in [UR5e-Execution](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Tutorial/TU_ROS/tutorial/ur5e/ur5e-robot-execution.md), and needs to be appropriately modified.
 
   
 
@@ -101,6 +118,8 @@ The main nodes for this robotic system are listed below. Briefly explain the rol
 
 
 - if you want, you can make `.launch` file
+
+
 
 
 
@@ -128,6 +147,10 @@ roslaunch ~~ ~~~
 
 
 
+
+
+
+
 ### Robot Execution
 
 Write the code here to run the robot in the terminal
@@ -143,6 +166,10 @@ roslaunch ~~ ~~~
 ```bash
 roslaunch ~~ ~~~
 ```
+
+
+
+
 
 
 
