@@ -67,4 +67,6 @@ rosrun indy_driver demo_pick_and_place.py
 
 ### Demo 4: Pet Feeder Robot
 
-[LAB](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_PetFeederRobot.md)
+- LAB 수행: [link](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_PetFeederRobot.md)
+
+
