@@ -67,10 +67,4 @@ rosrun indy_driver demo_pick_and_place.py
 
 ### Demo 4: Pet Feeder Robot
 
-```bash
-roslaunch indy10_moveit_config moveit_planning_execution.launch robot_ip:=192.168.0.8
-rosrun tutorial camera.py
-rosrun tutorial image_display.py
-rosrun indy_driver pet_classifier.py    # conda environment
-rosrun indy_driver pet_feeder.py
-```
+[LAB](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_PetFeederRobot.md)
