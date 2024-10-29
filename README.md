@@ -126,7 +126,7 @@ This  can be changed with notice
 ### [LAB 2:  Bearing Fault Monitoring and RUL Estimation](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_Prognostic_BearingFault_RUL.md)
 
 
-
+### [LAB 3:  Pet Feeder Robot](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_PetFeederRobot.md)
 
 
 ---
