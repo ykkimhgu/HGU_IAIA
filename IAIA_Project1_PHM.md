@@ -1,4 +1,4 @@
-# Project 1: PHM
+![image](https://github.com/user-attachments/assets/2af9c4e5-2e34-4a96-9c60-70e1fcd36977)# Project 1: PHM
 
 
 
@@ -132,26 +132,27 @@ You can see the publication list in
 
 
 
-## **Presentation & Demo** (60%)
+## **Presentation & Demo** 
 
 |                              | **Excellent**                                                | **Good**                                      | **Avg.**                   | **None** |
 | ---------------------------- | ------------------------------------------------------------ | --------------------------------------------- | -------------------------- | -------- |
 |                              |                                                              |                                               |                            |          |
-| **Completeness**(demo video) | (15) Achieving research goal. Explain necessary process and Result and Analysis in the Presentation | (10) Moderate                                 | (5) Need many improvements | 0        |
+| **Completeness**             | (15) Achieving research goal. Explain necessary process and Result and Analysis in the Presentation | (10) Moderate                                 | (5) Need many improvements | 0        |
 | **Creativity & Complexity**  | (10) Complex, Originality                                    | (5) Moderate                                  | (3) Easy                   | 0        |
-| **Presentation Skill **      | (5) Nice PPT format, Good presentation                       | (3) Need some improvement on PPT presentation | (1) Poor Presentation      | 0        |
-| **Demonstration**            | (30) Successful Demonstration                                | (20) Partially Successful                     | (10) Poor Demonstration    | 0        |
+| **Presentation Skill**       | (5) Nice PPT format, Good presentation                       | (3) Need some improvement on PPT presentation | (1) Poor Presentation      | 0        |
+| **Paper Review**            | (10) Informative, concise  review                             | (5) Need some improvement                     | (3) Poor Explanation       | 0        |
 
+There can be extra points for Presentation
 
-There can be extra points for demonstration
+## Lab Report 
 
-## Lab Report (40%)
-
-|                                            | **Excellent**                                               | **Good**                                                     | **Avg.**                                            | **Poor**                                                     | **None**                |
-| ------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- | ------------------------------------------------------------ | ----------------------- |
-| **Process Explanation** & **Completeness** | **(30)** Easy to follow, has all necessary explanations     | **(25)** Good Explanation. A few missing info of (dataset link, source link etc) | **(20)** not enough explanations/ some missing info | **(10)** Hard to follow                                      | 0                       |
-| **Results Analysis** **/ Discussion**      | **(5)** Good Analysis /Discussion (precision/accuracy etc ) | -                                                            | **(3)** Partial analysis                            | -                                                            | 0                       |
-| **Format**                                 | **(5)** Neat/Consistent format, easy to read                | (4) Need some improvement                                    | -                                                   | **(3)** Need many improvement (No name, title , not consistent format etc) | 0 (not a report format) |
+|                                            | **Excellent**                                               | **Good**                                                     | **Avg.**                                            |  **None**                |
+| ------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |  ----------------------- |
+| **Introduction**                           | **(5)** Clear Problem Statement                             | **(4)**   | **(20)** not enough explanations/ some missing info | **(10)** Hard to follow                          |
+| **Results Analysis** **/ Discussion**      | **(5)** Good Analysis /Discussion (precision/accuracy etc ) | -                                                            | **(3)** Partial analysis                            |                       |
+| **Process Explanation** & **Completeness** | **(30)** Easy to follow, has all necessary explanations     | **(25)** Good Explanation. A few missing info of (dataset link, source link etc) | **(20)** not enough explanations/ some missing info | 0                       |
+| **Results Analysis** **/ Discussion**      | **(5)** Good Analysis /Discussion (precision/accuracy etc ) | -                                                            | **(3)** Partial analysis                            | -                         |
+| **Format**                                 | **(5)** Neat/Consistent format, easy to read                | (4) Need some improvement                                    | -                                                   |0 (not a report format) |
 
 
 
