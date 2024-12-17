@@ -1,6 +1,4 @@
-![image](https://github.com/user-attachments/assets/2af9c4e5-2e34-4a96-9c60-70e1fcd36977)# Project 1: PHM
-
-
+# Project 1: PHM
 
 
 
@@ -125,10 +123,8 @@ You can see the publication list in
 
 
 
-
+---
 # Grading Policy
-
-
 
 
 
@@ -148,7 +144,7 @@ There can be extra points for Presentation
 
 |                                            | **Excellent**                                               | **Good**                                                     | **Avg.**                                            |  **None**                |
 | ------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |  ----------------------- |
-| **Introduction**                           | **(5)** Clear Problem Statement                             | **(4)**                                                      | **(3)**                                             |0 |
+| **Introduction**                           | **(5)** Clear Problem Statement                             | **(4)**                                                      | **(3)**                                             | **(0)**                       |
 | **Algorithm/Model Design**                | **(10)** Complete explanation of algorithms / Includes flowchart / Full understand&mathematic background of each functions) | **(8)**                                            | **(5)**     | **(0)**                       |
 | **Results**                               | **(10)** Completeness of expected outcome / Adequate number of results / Statistics of results / Graphs&images for representation | **(8)**                                            | **(5)**     | **(0)**                       |
 | **Analysis**                              | **(5)** Interpretation of Results / Analysis of errors / Suggesting Improvement of algorithms) | **(4)**                                            | **(3)**     | **(0)**                       |
