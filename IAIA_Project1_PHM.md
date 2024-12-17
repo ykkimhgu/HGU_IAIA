@@ -148,11 +148,11 @@ There can be extra points for Presentation
 
 |                                            | **Excellent**                                               | **Good**                                                     | **Avg.**                                            |  **None**                |
 | ------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |  ----------------------- |
-| **Introduction**                           | **(5)** Clear Problem Statement                             | **(4)**   | **(20)** not enough explanations/ some missing info | **(10)** Hard to follow                          |
-| **Results Analysis** **/ Discussion**      | **(5)** Good Analysis /Discussion (precision/accuracy etc ) | -                                                            | **(3)** Partial analysis                            |                       |
-| **Process Explanation** & **Completeness** | **(30)** Easy to follow, has all necessary explanations     | **(25)** Good Explanation. A few missing info of (dataset link, source link etc) | **(20)** not enough explanations/ some missing info | 0                       |
-| **Results Analysis** **/ Discussion**      | **(5)** Good Analysis /Discussion (precision/accuracy etc ) | -                                                            | **(3)** Partial analysis                            | -                         |
-| **Format**                                 | **(5)** Neat/Consistent format, easy to read                | (4) Need some improvement                                    | -                                                   |0 (not a report format) |
+| **Introduction**                           | **(5)** Clear Problem Statement                             | **(4)**                                                      | **(3)**                                             |0 |
+| **Algorithm/Model Design**                | **(10)** Complete explanation of algorithms / Includes flowchart / Full understand&mathematic background of each functions) | **(8)**                                            | **(5)**     | **(0)**                       |
+| **Results**                               | **(10)** Completeness of expected outcome / Adequate number of results / Statistics of results / Graphs&images for representation | **(8)**                                            | **(5)**     | **(0)**                       |
+| **Analysis**                              | **(5)** Interpretation of Results / Analysis of errors / Suggesting Improvement of algorithms) | **(4)**                                            | **(3)**     | **(0)**                       |
+| **Format**                                 | **(5)** Proper Report format / Conclusion / citation / Referece format / Spelling error etc    | **(4)**                                            | **(3)**     | **(0)**                       |
 
 
 
