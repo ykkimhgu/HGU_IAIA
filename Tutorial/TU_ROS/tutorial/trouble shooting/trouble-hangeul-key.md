@@ -26,14 +26,15 @@ $ ibus-setup
 
 - [Input Method] -[Add] - [Korean 검색] - [Hangul] - [Add] - [Close]
 
-![Screenshot from 2023-04-22 21-55-13](https://user-images.githubusercontent.com/91526930/234136642-6b78a726-7843-493d-958a-b7caf5b5b151.png)
+![](https://user-images.githubusercontent.com/91526930/234136642-6b78a726-7843-493d-958a-b7caf5b5b151.png)
 
-![Screenshot from 2023-04-22 21-55-53](https://user-images.githubusercontent.com/91526930/234136663-7fac9277-4909-414a-8281-4367976b06e5.png)
+![](https://user-images.githubusercontent.com/91526930/234136663-7fac9277-4909-414a-8281-4367976b06e5.png)
 
 - [settings] - [Region & Language] - [Add an Input Source] - [Korean(Hangul) 선택]
 
-![Screenshot from 2023-04-22 21-56-41](https://user-images.githubusercontent.com/91526930/234136729-9456e9ce-d9e6-47fc-9b97-b9da291d2f43.png)
+![](https://user-images.githubusercontent.com/91526930/234136729-9456e9ce-d9e6-47fc-9b97-b9da291d2f43.png)
 
-![Screenshot from 2023-04-22 22-00-36](https://user-images.githubusercontent.com/91526930/234136739-a2e620f6-cd35-4baf-b9b2-d534fd30d41a.png)
+![](https://user-images.githubusercontent.com/91526930/234136739-a2e620f6-cd35-4baf-b9b2-d534fd30d41a.png)
 
-  <img src="https://github.com/user-attachments/assets/6711e671-9824-4183-9a54-e9eeab66cb1a.png" alt="image" style="zoom:67%;" />
+![](https://github.com/user-attachments/assets/2d99737e-58dc-4cd4-be41-28dc409a7920)
+
