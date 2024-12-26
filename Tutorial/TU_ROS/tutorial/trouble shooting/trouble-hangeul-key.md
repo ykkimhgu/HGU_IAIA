@@ -35,3 +35,5 @@ $ ibus-setup
 ![Screenshot from 2023-04-22 21-56-41](https://user-images.githubusercontent.com/91526930/234136729-9456e9ce-d9e6-47fc-9b97-b9da291d2f43.png)
 
 ![Screenshot from 2023-04-22 22-00-36](https://user-images.githubusercontent.com/91526930/234136739-a2e620f6-cd35-4baf-b9b2-d534fd30d41a.png)
+
+![](https://github.com/user-attachments/assets/6711e671-9824-4183-9a54-e9eeab66cb1a)
