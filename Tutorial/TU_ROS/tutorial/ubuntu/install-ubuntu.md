@@ -150,6 +150,9 @@ PC에서 사용중인 디스크 파티션 중 Ubuntu OS를 설치할 디스크 �
 
 - Ubuntu용으로 최소 20GB 이상의 공간 확보할 것.
 
+- 디스크 공간이 작은 경우 이벤트 뷰어로 파일 삭제 / 가상 메모리 제거 / 시스템 보호 사용안함 / BitLocker 제거 확인
+[참고자료](https://m.blog.naver.com/toruin84/223388130169)
+
   ![디스크_볼륨축소](https://user-images.githubusercontent.com/91526930/233800558-1c9838d6-6577-4872-a0b2-c3425e04ce84.png)
 
   <img src="https://user-images.githubusercontent.com/91526930/233800566-ac8a69e9-357c-4c01-a646-dd435e072f6c.png" alt="디스크_볼륨축소_할당" style="zoom:67%;" />
