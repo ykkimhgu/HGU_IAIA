@@ -40,7 +40,6 @@
 
 ​	3.3. [Ubuntu 설치 중, Installation type에 파티션이 안보이는 문제](###3.3.-Ubuntu-설치-중,-Installation-type에-파티션이-안보이는-문제)
 
-3.3. ubuntu 설치 중 Installation type에 파티션이 안보이는 문제
 
 ## 1. 준비 작업
 
