@@ -434,3 +434,10 @@ https://reason1241.tistory.com/15
   | TOSHIBA  |      F2 / 일부는 ESC and F1      |               F12               |
   |  INTEL   |                F2                |               F10               |
 
+
+### 3.3. ubuntu 설치 중 Installation type에 파티션이 안보이는 문제
+이는 Intel CPU 13세대 이후에 적용되는 **VMD Controller**가 활성화되어 있기 때문
+
+- 바이오스 advantaged mode에서 VMD Controller 비활성화
+- Ubuntu 20.04 설치
+- 설치 후 Ubuntu가 정상 설치된 것으로 확인되면 VMD Controller 활성화(활성화 안할 시 윈도우OS 블루스크린 화면 뜸)  
