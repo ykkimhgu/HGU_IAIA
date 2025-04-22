@@ -43,7 +43,18 @@ You can buy the necessary hardware. You can also use available experiment hardwa
 
 ## Past Projects
 
+
+### IAIA-2024
+1. [**CafeRobot-Indy10**](https://github.com/ssunwookim/IAIA-Project2-AidCafeRobot-Indy10-2022/tree/main)
+2. [**Hamburger Robot**](https://github.com/YunKiNoh/IAIA-2024-2-Project2-Automatic-Hamburger-Stacking-System/tree/main))
+3. [**Checker & Gomoku Game Robot**](https://github.com/Kwak-Jin/Industrial-AI-and-Automation/tree/master/Project/Robot%20Automation)
+   
+   
+### IAIA-2023
+
+
 ### IAIA-2022
+
 
 1) **[Mail Sorting Robot using Indy10 2022](https://github.com/ykkimhgu/IAIA-Project2-LetterSortingRobot-Indy10-2022)**
 
