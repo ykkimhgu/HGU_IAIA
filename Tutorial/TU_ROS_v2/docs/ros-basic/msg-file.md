@@ -68,7 +68,7 @@ ROS의 **Msg 파일**은 노드 간 통신에서 사용하는 데이터 구조�
    
    ## 메시지 포함 라이브러리 설정
    catkin_package(
-     CATKIN_DEPENDS message_runtime
+     CATKIN_DEPENDS rospy std_msgs message_runtime
    )
    ```
 
@@ -147,7 +147,11 @@ ROS의 **Msg 파일**은 노드 간 통신에서 사용하는 데이터 구조�
    rosrun my_package custom_subscriber.py
    ```
 
-
+ - 오류발생 (my_package.msg) 찾지 못할경우
+   ```
+   source ~/catkin_ws/devel/setup.bash 
+   ```
+    실행 후 재실행
 
 #### 실습 3: 커스텀 Msg 파일 활용 (C++)
 
