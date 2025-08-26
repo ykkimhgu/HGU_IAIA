@@ -162,8 +162,8 @@ catkin_ws/src
 #### 6. 파이썬 스크립트에 대해 실행권한 허용.
 
   ```bash
-  chmod +x ~/catkin_make/src/my_package/src/camera.py
-  chmod +x ~/catkin_make/src/my_package/src/image_display.py
+  chmod +x ~/catkin_ws/src/my_package/src/camera.py
+  chmod +x ~/catkin_ws/src/my_package/src/image_display.py
   ```
 
 
