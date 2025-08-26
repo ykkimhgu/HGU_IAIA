@@ -250,7 +250,7 @@ catkin_ws/src
 
 #### 3. launch 파일 실행
   ```bash
-  roslaunch tutorial image_display.launch camera_number:=0
+  roslaunch my_package image_display.launch camera_number:=0
   ```
 
 
