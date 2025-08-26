@@ -171,8 +171,8 @@ catkin_ws/src
 #### 7. 코드 실행
   ```bash
   roscore									# terminal 1
-  rosrun tutorial camera.py			# terminal 2
-  rosrun tutorial image_display.py		# terminal 3
+  rosrun my_package camera.py			# terminal 2
+  rosrun my_package image_display.py		# terminal 3
   rqt_graph								# terminal 4
   ```
 
