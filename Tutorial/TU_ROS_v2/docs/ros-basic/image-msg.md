@@ -28,7 +28,7 @@ catkin_ws/src
 
 ### 실습: 이미지 정보 생성/출력
 
-#### 1. `tutorial/src` 폴더 내부에 `camera.py` 파일 생성
+#### 1. `my_package/src` 폴더 내부에 `camera.py` 파일 생성
 
   ```python
   #!/usr/bin/env python3
