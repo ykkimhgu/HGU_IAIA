@@ -110,8 +110,8 @@
    cd ~/catkin_ws
    catkin_make
    
-   rosrun my_package custom_publisher
-   rosrun my_package custom_subscriber
+   rosrun my_package custom_publisher.py
+   rosrun my_package custom_subscriber.py
    ```
 
 
