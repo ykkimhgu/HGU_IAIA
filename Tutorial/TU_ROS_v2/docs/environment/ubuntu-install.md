@@ -416,5 +416,221 @@ Ubuntu OS를 설치할 디스크 파티션을 설정하는 과정이며, Windows
 
 - 바이오스 advantaged mode에서 VMD Controller 비활성화
 - Ubuntu 20.04 설치
-- 설치 후 Ubuntu가 정상 설치된 것으로 확인되면 VMD Controller 활성화(활성화 안할 시 윈도우OS 블루스크린 화면 뜸)  
+- 설치 후 Ubuntu가 정상 설치된 것으로 확인되면 VMD Controller 활성화(활성화 안할 시 윈도우OS 블루스크린 화면 뜸)
+
+- # Ubuntu Installation
+
+This guideline aims to **install Ubuntu 20.04 OS on a PC with Windows already installed**.  
+
+**Dual Booting**: Refers to the method of **installing two or more operating systems on a single computer**, allowing the user to **choose which OS to boot into each time the computer starts**.  
+
+**<span style="background-color:#fff5b1">※ Caution</span>**: Since installation environments vary depending on the PC, if you encounter differences from this guide, **(1) be skeptical, (2) research thoroughly, and (3) proceed with caution**.  
+
+[Reference] : [ROS Development Environment Setup - YouTube](https://youtu.be/x7tpah6Tiqw)
+
+&nbsp;
+## 1. Preparation
+
+### 1.1. Back Up Important Data (Mandatory!!)
+
+- During OS installation, data may be lost by mistake. Therefore, backing up important data is essential.  
+- Use external hard drives, cloud storage, etc., to back up important documents.  
+
+&nbsp;
+#### Backing Up BitLocker Keys (Mandatory)
+
+<span style="background-color:#fff5b1">Since the Windows OS may be affected during the installation process, you must back up the BitLocker key.</span>  
+
+- Log in with your Microsoft account → [My Account] → [Devices] tab.  
+- Under the registered device, select [View BitLocker Keys] to confirm the Key ID for the drive.  
+
+![Untitled](https://user-images.githubusercontent.com/91526930/233802004-2fe80c3f-2539-46d0-9705-1bf4201c3427.png)
+
+- Confirm the recovery key for the [Operating System Drive] and write it down separately.  
+  Do **not** save it on the same PC. If an issue occurs, you won’t be able to access it.  
+
+- Disable BitLocker  
+
+![Untitled2](https://user-images.githubusercontent.com/91526930/233802011-bb7591b6-ab2d-4557-a45b-48e1d0b4762c.png)
+
+[Reference]  
+https://sol2gram.tistory.com/68  
+https://www.samsungsvc.co.kr/solution/25356  
+
+&nbsp;
+### 1.2. Preparing a Bootable USB Drive
+
+You need a USB drive to install Ubuntu OS. Use an empty USB (8GB or 16GB).  
+
+#### Download Ubuntu Disk Image (ISO)
+
+- [Ubuntu 20.04.6 LTS](https://releases.ubuntu.com/focal/)  
+
+![ubuntu-20.04.6 disk image](https://user-images.githubusercontent.com/91526930/233799641-5a7e2ec0-93f8-427f-a42c-3a3e7925e8f4.png)
+
+#### Install ISO File onto USB using Rufus  
+
+- [Download Rufus](https://rufus.ie/en/)  
+  - Portable version is available (no installation required).  
+
+![image](https://user-images.githubusercontent.com/91526930/233799896-4a051f93-a35a-496c-aa30-3db0d592216a.png)
+
+- Connect USB  
+  - All files on the USB will be erased, so move them elsewhere first.  
+
+- Run Rufus  
+  - Update policy → [No]  
+  - [Device] → Select USB  
+  - [Boot selection] → [Choose] → open `ubuntu-(version)-desktop-amd64.iso`  
+
+![rufus_실행_디스크선택](https://user-images.githubusercontent.com/91526930/233800162-3994bbf3-f50c-4e09-97ef-5d1331e54ae1.png)
+
+- Select Partition Scheme (GPT/MBR)  
+  - Check your PC’s partition type (see bottom of this guide).  
+
+![rufus_파티션구성](https://user-images.githubusercontent.com/91526930/233800311-774ef86e-bcda-44cd-a72a-290af0ed118e.png)
+
+- File System  
+  - GPT: FAT32 (default)  
+  - MBR: FAT32 / NTFS both possible → FAT32 recommended unless special case  
+
+- Burn ISO Image  
+
+![rufus_이미지 굽기](https://user-images.githubusercontent.com/91526930/233800405-18681b12-3a1b-44dd-b877-a045d1bf5682.png)
+
+  - [Write in ISO Image mode (Recommended)] → OK  
+  - [Erase all data] → OK  
+
+- After completion, the USB will have the following structure:  
+
+![rufus_이미지굽기_완료](https://user-images.githubusercontent.com/91526930/233800461-98f5c213-e9b1-4238-8b03-9ae6da951b34.png)
+
+&nbsp;
+### 1.3. Disk Partition Setup  
+
+This process secures space on the disk where Ubuntu OS will be installed.  
+
+#### Free Up Disk Space  
+
+- In Windows, use Disk Management to shrink a partition and create space for Ubuntu.  
+- [Start] → [Computer Management] → [Disk Management] → [Main Disk] → [Right Click] → [Shrink Volume]  
+- Ensure at least 60GB free space for Ubuntu.  
+
+![디스크_볼륨축소](https://user-images.githubusercontent.com/91526930/233800558-1c9838d6-6577-4872-a0b2-c3425e04ce84.png)
+
+![디스크_볼륨축소_할당](https://user-images.githubusercontent.com/91526930/233800566-ac8a69e9-357c-4c01-a646-dd435e072f6c.png)
+
+- Result: Unallocated disk volume  
+
+![02_디스크_볼륨축소_결과](https://user-images.githubusercontent.com/91526930/233800577-49f4cb20-9fda-4434-ba43-8ef54f9cc441.png)
+
+#### If There is No Space to Shrink  
+
+If shrinking is not possible, check **Event Viewer, Virtual Memory, System Protection, BitLocker**.  
+
+[Reference](https://m.blog.naver.com/toruin84/223388130169)  
+
+![](https://github.com/user-attachments/assets/c57dd0cc-e6ad-4f6d-bf34-8552b593ad5e)
+
+&nbsp;
+### 1.4. BIOS Settings  
+
+#### Enter BIOS  
+- [Insert Ubuntu USB] → [Reboot] → [Press BIOS key]  
+  - BIOS key varies: `Del`, `F2`, `F10`, `F11` depending on manufacturer.  
+
+#### Boot Options  
+- **Boot Order**: Set Ubuntu USB as first boot device.  
+- **Other Settings**:  
+  - Secure Boot → Disable  
+  - Fast Boot → Disable  
+  - UEFI mode → Enabled (do not use Legacy)  
+  - AHCI mode → Enabled  
+
+---
+
+## 2. Ubuntu Installation  
+
+### 2.1. Boot from USB & Installation Screen  
+
+- With USB boot priority set, Ubuntu installer will run.  
+
+![image](https://user-images.githubusercontent.com/91526930/233800893-64b75d34-b087-4763-9bf1-b4b16455b678.png)
+
+- Keyboard Layout → [Continue]  
+- Updates & Software → choose Normal/Minimal, third-party drivers optional.  
+- Installation Type → select **Something else**  
+
+![image](https://user-images.githubusercontent.com/91526930/233801028-3089aac4-310d-4416-ac42-340573d5d267.png)
+
+### 2.2. Partition & Bootloader Settings  
+
+⚠️ Partitions differ by PC. Examples are based on TA’s experience but may not cover all cases.  
+
+Two cases:  
+- **Case 1**: Install Ubuntu on the same drive as Windows boot.  
+- **Case 2**: Install Ubuntu on a separate drive from Windows boot.  
+
+#### Case 1: Same Drive as Windows Boot  
+
+- Create Root Partition → allocate free space as ext4 `/`  
+- Bootloader: only one option (Windows drive). Select `/dev/sda` then [Install Now].  
+
+#### Case 2: Separate Drive  
+
+- Create EFI partition (512MB, use as EFI).  
+- Create Root Partition with remaining space, ext4 `/`.  
+- Bootloader: select the EFI partition.  
+
+---
+
+### 2.3. Installation Complete  
+
+- [Reboot] → [Remove USB] → Set PC name & password.  
+
+![image](https://user-images.githubusercontent.com/91526930/233801833-1f2f3665-e533-4796-91ed-23a307837df5.png)
+
+---
+
+## 3. Others  
+
+### 3.1. Check GPT/MBR  
+
+[Start] → [Computer Management] → [Disk Management] → [Right Click Disk] → [Properties] → [Volume Tab]  
+
+![컴퓨터관리_디스크속성](https://user-images.githubusercontent.com/91526930/233802295-ff2a8325-bb08-4683-b830-c57ca0245a18.png)  
+![디스크속성_파티션형식](https://user-images.githubusercontent.com/91526930/233802314-119508c8-ec6a-4d98-91f7-7b5ff453d33e.png)  
+
+[Reference]  
+[https://reason1241.tistory.com/15](https://reason1241.tistory.com/15)  
+
+### 3.2. Dual Boot Option Not Appearing  
+
+If boot menu does not appear and Windows boots directly:  
+- Enter boot menu manually (keys vary by manufacturer).  
+
+| Manufacturer | BIOS | Boot Menu |
+|--------------|------|-----------|
+| Samsung      | F2   | F10 / ESC |
+| LG           | F2   | F10 (Laptop) / F12 (PC) |
+| Hansung      | F2   | F7 |
+| TG Sambo     | F2 / Del | F12 |
+| Jooyon Tech  | F2 / Del | F7 |
+| HP           | F10 / ESC | F9 / ESC |
+| Lenovo       | F2 / F1 | F12 |
+| DELL         | F2 | F12 |
+| ASUS         | F2 / Del | ESC / F8 |
+| MSI          | Del | F11 |
+| ACER         | F2 | F12 |
+| GIGABYTE     | F2 / Del | F12 |
+| TOSHIBA      | F2 / ESC/F1 | F12 |
+| INTEL        | F2 | F10 |
+
+### 3.3. Partitions Not Visible During Installation  
+
+On Intel 13th-gen CPUs and later, **VMD Controller** may block detection.  
+- Disable VMD Controller in BIOS Advanced Mode.  
+- Install Ubuntu 20.04.  
+- After confirming Ubuntu works, re-enable VMD (otherwise Windows may BSOD).  
+
 
