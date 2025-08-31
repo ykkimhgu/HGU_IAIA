@@ -83,3 +83,96 @@ source ~/.bashrc
 워크스페이스는 ROS에서 프로젝트를 구성하고 관리하기 위한 기본 환경입니다. 워크스페이스 생성과 초기화를 통해 ROS 개발을 위한 준비를 완료할 수 있습니다. 이후 패키지를 생성하고 노드를 작성하며, ROS 시스템을 확장해 나갈 수 있습니다.
 
 
+
+
+
+# Workspace (Work Space)
+
+## What is a Workspace?
+
+In ROS, a **workspace** is the working environment where projects are stored, built, and managed.  
+A workspace contains multiple packages and serves as the basic working unit of the ROS system.
+
+The typical workspace directory structure is as follows:
+
+- **src**: Directory where the source code of ROS packages is stored.  
+- **build**: Directory where the build artifacts (intermediate files) are stored.  
+- **devel**: Directory where executables and configuration files are stored, used as a development environment only within the workspace.  
+
+---
+
+## Practice: Creating a Workspace
+
+### 1. Verify ROS Installation
+Check if ROS is installed correctly. Run the following command to start `roscore` and confirm that the ROS master is running:
+
+```bash
+roscore
+```
+
+
+If successful, the terminal will display the message:
+"started core service".
+
+
+
+#### 2. Create and Initialize a Workspace
+
+Follow the steps below to create and initialize a workspace:
+
+```
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+
+- **mkdir -p ~/catkin_ws/src**: Creates a workspace named `catkin_ws` with a `src` directory.
+- **catkin_make**: Builds the workspace and initializes necessary directories.
+- **source devel/setup.bash**: Applies ROS environment settings to the current terminal session.
+
+
+
+#### 3. Check Workspace Structure
+
+Verify the directory structure of the created workspace:
+
+```
+ls ~/catkin_ws
+```
+
+Example output:
+
+```
+build  devel  src
+```
+
+Roles of each directory:
+
+- **src**: Stores package source code.
+- **build**: Stores intermediate files generated during build.
+- **devel**: Stores build results and executables.
+
+
+
+### Role of the Environment Setup File
+
+The command:
+```
+source devel/setup.bash
+```
+applies the workspace configuration to the current terminal.
+This allows ROS to recognize packages and executables.
+
+Since you need to run this command every time you open a new terminal, you can add it to `.bashrc` for automatic setup:
+
+```
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
+Summary
+
+A workspace is the fundamental environment in ROS for organizing and managing projects.
+By creating and initializing a workspace, you complete the preparation for ROS development.
+From there, you can create packages, write nodes, and expand the ROS system further.
