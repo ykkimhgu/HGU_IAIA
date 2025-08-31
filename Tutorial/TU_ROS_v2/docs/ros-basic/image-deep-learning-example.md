@@ -216,7 +216,7 @@ catkin_ws/src
 
 
 
-### 실습: 이미지 분류하기
+Practice: Image Classification
 
 #### 1. Create `image_classifier.py` inside `my_package/src`
 ```python
