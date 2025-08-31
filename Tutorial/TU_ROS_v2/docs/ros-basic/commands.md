@@ -80,3 +80,87 @@ rqt
 ```bash
 rqt_graph
 ```
+
+
+
+
+# Basic ROS Commands
+
+## 1. File and Path Related Commands
+
+### Move to the Current ROS Package Path
+Directly move to the root directory of a specific package:  
+
+```bash
+roscd [package_name]
+```
+
+
+
+* **Find Package Files**
+  * Return the installation path of a specified package:
+  * 
+```bash
+rospack find [package_name]
+```
+
+
+
+## 2. Execution Commands
+
+* **Run a Node**
+  * Execute a node from a specific package:
+
+```bash
+rosrun [package_name] [node_name]
+```
+
+
+
+* **Run a Launch File**
+  * Run multiple nodes simultaneously using a launch file:
+
+```bash
+roslaunch [package_name] [launch_file]
+```
+
+
+
+## 3. Status Check Commands
+
+* Check Node Information
+
+```bash
+rosnode list
+```
+
+* Check Topic Information
+
+```bash
+rostopic list
+```
+
+* **Echo Topic Messages**
+  * Print the messages of a specific topic in real time:
+
+```bash
+rostopic echo [topic_name]
+```
+
+
+
+## 4. Debugging Commands
+
+* **Run rqt Tool**
+  * Run the GUI-based debugging and monitoring tool in ROS:
+
+```bash
+rqt
+```
+
+* **View Topic Graph**
+  * Visualize the relationships between nodes and topics in a graph:
+
+```bash
+rqt_graph
+```
