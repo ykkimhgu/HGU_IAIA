@@ -54,9 +54,11 @@ pip install torchsummary
 
 &nbsp;
 ## 3. ROS 패키지 설치 및 환경구축
+## 3. ROS Package Installation and Environment Setup
 
 - Conda 가상환경에 ROS 패키지 설치
-
+- Install ROS-related packages in the conda virtual environment
+  
   ```bash
   # Activate myEnv
   conda activate py38
@@ -66,6 +68,7 @@ pip install torchsummary
   ```
 
 - 환경변수: ROS python 라이브러리 경로 추가
+- Add ROS Python library path to environment variables
 
   ```bash
   # 편집기 실행
@@ -80,6 +83,7 @@ pip install torchsummary
 ## 4. Troubleshooting 
 
 #### Libtiff 버전 호환 문제
+#### Libtiff Version Compatibility Issue
 
 - 상황: 위의 설치과정 이후, `ex_pet_classifier.py` 예제 실행 시, 아래 메세지 출력됨.
 
@@ -87,11 +91,19 @@ pip install torchsummary
 
 - conda env에 `libtiff`의 버전이 적절하지 않아 발생하는 문제임.
 
+- Situation: After the installation process, running ex_pet_classifier.py may show the following
+  
+- error:/lib/libgdal.so.26: undefined symbol: TIFFReadRGBATileExt, version LIBTIFF_4.0
+  
+- Cause: The installed version of libtiff in the conda environment is not compatible.
+
   ```bash
   # 현재 설치된 libtiff의 버전 확인하기
+  # Check the installed version of libtiff
   conda list libtiff
   
   # libtiff 4.0으로 설치하기
+  # Install libtiff version 4.0
   conda install -c conda-forge libtiff=4.0
   ```
 
