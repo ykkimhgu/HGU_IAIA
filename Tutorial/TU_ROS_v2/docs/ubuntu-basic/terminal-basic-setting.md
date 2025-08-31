@@ -101,3 +101,114 @@ source ~/.bashrc  # 새로운 환경 변수를 즉시 적용
 ### 7. 요약
 
 `bashrc` 파일은 터미널 초기화와 사용자 환경 설정의 핵심 역할을 하며, 환경 변수, 별칭, 사용자 정의 함수 등을 통해 작업을 효율적으로 관리할 수 있습니다. `source` 명령어를 사용하여 수정 사항을 즉시 적용할 수 있으므로, 터미널을 다룰 때 꼭 알아두어야 할 기본 개념입니다.
+
+
+
+
+
+# Terminal Environment Configuration
+
+### 1. What is the bashrc file?
+
+The `bashrc` file is a configuration file in Linux systems such as Ubuntu that stores initialization settings used by the **Bash shell**.  
+This file runs automatically whenever a terminal is launched, setting environment variables or initializing user-defined commands.
+
+The `bashrc` file is usually located in the user’s home directory as a hidden file:
+
+
+```
+~/.bashrc
+```
+
+
+&nbsp;&nbsp;
+### 2. Main Roles of bashrc
+
+- **Set Environment Variables**: Defines paths for executing commands in the terminal (e.g., `PATH`).  
+- **Command Aliases**: Define shortcuts for long commands.  
+- **Function Definitions**: Store frequently used scripts or tasks as functions.  
+- **System Initialization Tasks**: Automatically execute necessary initialization when logging in.  
+
+&nbsp;&nbsp;
+### 3. Editing the bashrc File
+
+- **Open bashrc File**: Open the `bashrc` file with a text editor from the terminal:  
+
+   ```bash
+   gedit ~/.bashrc
+
+- **Add Environment Variables**: Add new environment variables as follows:
+
+   ```bash
+   export MY_VARIABLE="my_value"
+   ```
+
+- **Define Aliases**: Create shortcuts for frequently used commands:
+
+   ```bash
+   alias ll='ls -alF'
+   alias gs='git status'
+   ```
+
+- **Add Functions**: Define repetitive tasks as functions:
+
+   ```bash
+   my_function() {
+       echo "이것은 사용자 정의 함수입니다."
+   }
+   ```
+
+- **Save and Exit**: After editing in `gedit`, click the save button or press `Ctrl + S`, then close the window.
+
+
+&nbsp;&nbsp;
+### 4. Apply Changes
+
+After editing the `bashrc` file, you must apply the changes to the terminal. Run the following command:
+
+```bash
+source ~/.bashrc
+```
+
+This command reloads the `bashrc` file and applies it to the current shell.
+
+
+&nbsp;&nbsp;
+### 5. What is the source Command?
+
+The `source` command executes a script and immediately applies it to the current shell session.
+It is commonly used to apply changes to configuration files such as `bashrc`. For example:
+
+```bash
+source ~/.bashrc    # Immediately apply new environment variables
+```
+
+
+&nbsp;&nbsp;
+### 6. Examples of bashrc Usage
+
+- **Add a new path to PATH**:
+
+   ```bash
+   export PATH="$PATH:/home/user/my_programs"
+   ```
+
+- **Customize the Prompt**: Improve usability by customizing the prompt:
+
+   ```bash
+   export PS1="\u@\h:\w$ "
+   ```
+
+- **Simplify tasks with aliases**:
+
+   ```bash
+   alias update='sudo apt update && sudo apt upgrade'
+   ```
+
+
+&nbsp;&nbsp;
+7. Summary
+
+The `bashrc` file plays a key role in terminal initialization and user environment configuration.
+Through environment variables, aliases, and user-defined functions, you can manage tasks more efficiently.
+By using the `source` command, modifications can be applied immediately, making `bashrc` an essential concept when working with the terminal.
