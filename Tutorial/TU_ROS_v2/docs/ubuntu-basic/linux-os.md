@@ -57,3 +57,54 @@ Ubuntu는 Linux 기반의 운영 체제 배포판(distribution) 중 하나로, �
 #### 추가 정보
 
 Ubuntu는 다양한 버전으로 제공되며, 가장 많이 사용되는 버전은 데스크톱용과 서버용입니다. 장기 지원(LTS) 버전은 5년간의 업데이트와 유지보수를 제공하며, 안정성과 장기적인 사용이 필요한 경우 적합합니다.
+
+# Linux OS and Ubuntu
+
+## 1. What is Linux OS?
+
+Linux is an **open-source operating system (OS)** that was started in 1991 by Linus Torvalds as a personal project and has since evolved with contributions from developers around the world.  
+It complies with the **POSIX standard** and provides a structure and functionality similar to UNIX.  
+
+### Philosophy and Development Ideals
+- **Open Source**: Linux source code is publicly available, allowing anyone to freely modify, distribute, and use it.  
+- **Collaboration & Community-Driven**: Linux is developed by a global community, reflecting the contributions of numerous developers.  
+- **Flexibility & Scalability**: Linux runs on a wide variety of platforms, including servers, desktops, mobile devices, and embedded systems.  
+
+### Structure of Linux
+Linux operates with the following layered structure:
+
+- **Hardware**: Physical components of the computer system (e.g., CPU, memory, disk).  
+- **Kernel**: The core that connects hardware and software. Responsible for resource management, process management, and device drivers.  
+- **Shell**: Interface between the user and the kernel. It delivers user commands to the kernel.  
+- **CLI (Command Line Interface)**: Text-based command input method.  
+- **GUI (Graphical User Interface)**: Graphical interface for user interaction.  
+- **Applications**: End-user programs such as browsers, text editors, etc.  
+
+---
+
+## 2. What is Ubuntu?
+
+Ubuntu is one of the **Linux distributions** developed and supported by **Canonical**. It offers a user-friendly interface and easy installation process, making it suitable for both beginners and experts.  
+
+### Key Features of Ubuntu
+- **User-Friendly**: Provides an intuitive GUI and software management tools for ease of use.  
+- **Free of Charge**: Completely free to use with no additional cost.  
+- **Active Community Support**: Solutions available through forums, documentation, and tutorials.  
+- **Stability & Security**: Regular updates and patches ensure system reliability and enhanced security.  
+
+### Why Use Ubuntu?
+- **Learning Open-Source Environment**: Optimized for learning open-source development.  
+- **Diverse Development Tools**: Supports a wide range of programming languages and tools, ideal for developers.  
+- **Server & Cloud Support**: Highly compatible with server management and cloud platforms (e.g., AWS, Azure).  
+- **Suitable for ROS**: The Robot Operating System (ROS) is officially supported on Ubuntu, making it the best platform for ROS applications.  
+
+### Comparison with Other Distributions
+- **Debian**: The base distribution of Ubuntu; very stable but slower in adopting the latest software updates.  
+- **Fedora**: Quick to adopt new technologies, but lacks long-term support (LTS).  
+- **CentOS**: Specializes in server environments with high stability.  
+- **Arch Linux**: Highly customizable but complex to install and maintain.  
+
+### Additional Information
+Ubuntu is available in various editions, with the most widely used being **Desktop** and **Server**.  
+The **Long-Term Support (LTS)** versions provide 5 years of updates and maintenance, making them ideal for stability and long-term use.  
+
