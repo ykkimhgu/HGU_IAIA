@@ -8,3 +8,20 @@
 timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
+# Ubuntu–Windows Time Synchronization
+
+When using dual boot, you may encounter an issue where **the Windows system time changes unexpectedly**.  
+
+- **Cause**  
+  - By default, **Windows stores the hardware clock in Local Time**.  
+  - **Linux (Ubuntu) stores the hardware clock in UTC (Coordinated Universal Time)**.  
+  - This mismatch causes the time to shift when switching between the two operating systems.  
+
+- **Solution**  
+  Configure Ubuntu to also use **Local Time** instead of UTC.  
+
+Run the following command in Ubuntu terminal:  
+
+```bash
+timedatectl set-local-rtc 1 --adjust-system-clock
+```
