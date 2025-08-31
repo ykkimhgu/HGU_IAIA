@@ -119,3 +119,125 @@
 ### 요약
 
 ROS 빌드 시스템은 Python과 C++ 기반 노드를 포함한 모든 구성 요소를 통합합니다. 이 실습을 통해 빌드 프로세스를 체계적으로 이해하고, 노드 간 통합 작업을 효과적으로 수행할 수 있습니다.
+
+
+
+
+
+
+# Build System (Python and C++)
+
+## 1. Concept of the Build System
+
+### Role of `catkin_make` in ROS
+`catkin_make` is the build system for ROS workspaces.  
+It compiles project components such as nodes and message files, preparing them to be executable.  
+
+### Functions and Interaction of `CMakeLists.txt` and `package.xml`
+- **CMakeLists.txt**  
+  - Defines settings required for the build system.  
+  - Includes source files, message files, and executables.  
+
+- **package.xml**  
+  - Manages package dependencies.  
+  - Specifies dependencies for message files and libraries.  
+
+### Differences in Build Settings for Python and C++ Nodes
+- **Python**  
+  - As an interpreted language, no compilation is required.  
+  - Execution permission (`chmod +x`) and dependency settings in `package.xml` are important.  
+
+- **C++**  
+  - Requires compiled executables.  
+  - Build settings must be configured in `CMakeLists.txt`.  
+  - If using Msg files, auto-generated header files are referenced.  
+
+---
+
+## 2. Overall Build Flow
+
+### Build Flow for Python-based Nodes
+1. Add dependencies in `package.xml`.  
+2. Grant execution permissions to the node file.  
+3. Run the node directly.  
+
+### Build Flow for C++-based Nodes
+1. Add source files and message settings in `CMakeLists.txt`.  
+2. Add dependencies in `package.xml`.  
+3. Run `catkin_make`.  
+4. Use generated header files when writing nodes.  
+
+### Build Flow with Msg Files
+1. Define Msg files needed for the project.  
+2. Modify `CMakeLists.txt` and `package.xml` to include Msg files in the build process.  
+3. Run `catkin_make` to generate the corresponding header files.  
+4. Reference these header files in publishers and subscribers.  
+
+---
+
+## 3. Practice: Integrating the Build Process
+
+1. Modify `Person.msg`
+   - Edit `msg/Person.msg` to add a new field:
+
+  ```
+     string name
+     int32 age
+     float32 height
+     bool is_student
+  ```
+
+2. Update `CMakeLists.txt` and `package.xml`
+   - Ensure `CMakeLists.txt` includes Msg file configurations.  
+   - Ensure `package.xml` includes the dependencies:  
+     - `message_generation`  
+     - `message_runtime`  
+
+
+
+3. Modify Python Publisher and Subscriber
+
+    - Publisher:
+
+     ```
+     msg.is_student = True
+     ```
+
+   - Subscriber:
+
+     ```
+     rospy.loginfo(f"Received: Name={data.name}, Age={data.age}, Height={data.height}, Student Status: {data.is_student}")
+     ```
+
+4. **Modify C++ Publisher and Subscriber**:
+
+   - Publisher:
+
+     ```
+     msg.is_student = true;
+     ROS_INFO("Publishing: Name=%s, Age=%d, Height=%.2f, Student Status: %s", msg.name.c_str(), msg.age, msg.height, msg.is_student ? "True" : "False");
+     ```
+
+   - Subscriber:
+
+     ```
+     ROS_INFO("Received: Name=%s, Age=%d, Height=%.2f, Student Status: %s", msg->name.c_str(), msg->age, msg->height, msg->is_student ? "True" : "False");
+     ```
+
+5. **Build and Run the Workspace**:
+
+   ```
+   cd ~/catkin_ws
+   catkin_make
+   
+   rosrun my_package custom_publisher.py
+   rosrun my_package custom_subscriber.py
+   ```
+
+
+
+### Summary
+
+The ROS build system integrates all components, including both Python and C++ nodes.
+Through this practice, you gain a systematic understanding of the build process and learn how to effectively perform integration tasks across nodes.
+
