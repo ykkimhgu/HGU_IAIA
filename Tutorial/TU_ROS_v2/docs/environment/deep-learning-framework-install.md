@@ -53,8 +53,7 @@ pip install torchsummary
 
 
 &nbsp;
-## 3. ROS 패키지 설치 및 환경구축
-## 3. ROS Package Installation and Environment Setup
+## 3. ROS 패키지 설치 및 환경구축[ROS Package Installation and Environment Setup]
 
 - Conda 가상환경에 ROS 패키지 설치
 - Install ROS-related packages in the conda virtual environment
