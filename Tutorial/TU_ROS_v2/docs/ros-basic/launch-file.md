@@ -107,3 +107,121 @@ roslaunch my_package custom_nodes.launch
 
 Launch 파일은 여러 노드를 효율적으로 실행하고 관리할 수 있는 도구입니다. 기본 구조와 실습을 통해 공용 파라미터와 노드별 파라미터를 설정하고 활용하는 방법을 익혔으며, 이를 바탕으로 복잡한 ROS 시스템에서도 효율적으로 작업을 수행할 수 있습니다.
 
+
+
+
+
+# Launch Files (.launch)
+
+## Concept
+
+A **ROS Launch file** is an XML-based script file that allows you to run multiple nodes simultaneously and manage their configurations.  
+It is an essential component in complex ROS systems, providing convenience for execution and management.
+
+---
+
+## Key Features of Launch Files
+- **Node Execution**: Run multiple nodes at once.  
+- **Parameter Settings**: Define or pass parameters needed by nodes.  
+- **Dependency Management**: Control the order of execution and apply necessary configurations.  
+- **Reusability**: Use the same file to repeatedly execute identical tasks.  
+
+---
+
+## Main Purposes of Launch Files
+- Automate the execution of multiple nodes in complex ROS systems.  
+- Provide a flexible runtime environment by passing parameters and configuration values to nodes.  
+- Reduce execution errors caused by human mistakes and improve workflow speed.  
+
+---
+
+## Basic Structure of a Launch File
+
+A launch file is written in XML format. Nodes and settings are defined inside the `<launch>` tag.  
+The basic structure is as follows:
+
+```xml
+<launch>
+    <!-- Global parameter setting -->
+    <param name="global_param_name" value="global_value" />
+
+    <!-- Node execution -->
+    <node pkg="package_name" type="executable_name" name="node_name" output="screen">
+        <!-- Node-specific parameters -->
+        <param name="node_param_name" value="node_value" />
+    </node>
+</launch>
+```
+
+`<launch>`: The top-level tag that includes all configurations.
+`<param>`: Defines parameters that can be used globally or for specific nodes.
+    - Global Parameters: Used across the entire launch file.
+    - Node Parameters: Passed only to a specific node.
+`<node>`: Defines a node to be executed.
+    - `pkg`: The name of the package where the node belongs.
+    - `type`: The name of the executable file.
+    - `name`: The name of the node instance being executed.
+    - `output`: Defines output mode (`screen` or `log`).
+
+
+
+### Practice: Writing a Launch File
+
+#### 1. Create a Launch File
+
+Create a `launch` directory in your ROS workspace and create `custom_nodes.launch`:
+
+```
+mkdir -p ~/catkin_ws/src/my_package/launch
+cd ~/catkin_ws/src/my_package/launch
+touch custom_nodes.launch
+```
+
+#### 2. Write the Launch File
+
+Open `custom_nodes.launch` and add the following content:
+
+```
+<launch>
+    <!-- Global parameter setting -->
+    <param name="global_param" value="common_value" />
+
+    <!-- Publisher node -->
+    <node pkg="my_package" type="custom_publisher.py" name="publisher_node" output="screen">
+        <param name="publish_rate" value="2" />
+    </node>
+
+    <!-- Subscriber node -->
+    <node pkg="my_package" type="custom_subscriber.py" name="subscriber_node" output="screen" />
+</launch>
+```
+
+#### 3.  Modify Publisher
+ - In the publisher script, modify the rate parameter to use the launch file parameter:
+
+```
+rate_value = rospy.get_param('~publish_rate', 1)  # Default: 1 Hz
+rate = rospy.Rate(1.0/rate_value)   # Hz
+```
+
+#### 4. Run the Launch File
+
+Execute the launch file to run both publisher and subscriber nodes simultaneously
+
+```
+roslaunch my_package custom_nodes.launch
+```
+
+#### 5. Verify Execution
+
+- After running the launch file, both nodes will be executed at the same time.
+- The publisher sends data, and the subscriber receives it.
+- Logs will be printed on the terminal to confirm communication
+
+
+
+### Summary
+
+A ROS Launch file is a powerful tool to efficiently run and manage multiple nodes.
+Through the basic structure and practice, we learned how to set global and node-specific parameters, and how to leverage launch files for streamlined workflows.
+This makes working with complex ROS systems much more efficient.
