@@ -166,3 +166,171 @@
 ### 요약
 
 노드와 토픽은 ROS 시스템의 핵심 통신 메커니즘입니다. 이 실습을 통해 노드 실행, 토픽 데이터 송수신, 그리고 노드 간 관계를 시각적으로 확인하는 과정을 익힐 수 있습니다. 이를 기반으로 더 복잡한 시스템을 설계할 수 있습니다.
+
+
+
+# Concept and Practice of Nodes and Topics
+
+## What are Nodes and Topics?
+
+### Node
+- A **node** is an executable program unit in ROS that performs a specific task (e.g., collecting sensor data, controlling motors).  
+- Each node runs independently and communicates with other nodes to exchange data.  
+
+### Topic
+- A **topic** is an asynchronous communication channel for data exchange between nodes.  
+- Data is exchanged via **Publishers** and **Subscribers**.  
+- Example: A camera node publishes image data to the `/camera/image_raw` topic, and another node subscribes to this topic to process the images.  
+
+---
+
+## Practice: TurtleSim
+
+### 1. Run ROS Nodes
+- **Run ROS Master**: Start `roscore`, the central service for all ROS communication.  
+
+```bash
+roscore
+```
+
+2. **Run the Turtlesim Node:**:
+
+   ```
+   rosrun turtlesim turtlesim_node
+   ```
+
+   - A GUI window opens and a turtle appears.
+
+3. **Run the Turtlesim Control Node**:
+
+   ```
+   rosrun turtlesim turtle_teleop_key
+   ```
+
+   - You can control the turtle using your keyboard.
+
+
+
+#### 2. Check Topics and Send/Receive Data
+
+1. **Check current topics**:
+
+   ```
+   rostopic list
+   ```
+
+   - Displays all active topics.
+
+2. **Check data of a specific topic**:
+
+   ```
+   rostopic echo /turtle1/cmd_vel
+   ```
+
+   - Displays the real-time data being published to `/turtle1/cmd_vel`.
+
+3. **Publish data to a topic**:
+
+   ```
+   rostopic pub /turtle1/cmd_vel geometry_msgs/Twist '{linear: {x: 2.0}, angular: {z: 1.0}}'
+   ```
+
+   - The turtle moves with the specified velocity.
+
+   
+
+#### 3. Visualize Node-Topic Relationships with rqt_graph
+
+1. **Run rqt_graph**:
+
+   ```
+   rqt_graph
+   ```
+
+   - Displays a graph showing the relationships between nodes and topics.
+
+2. **Topic / Node**
+
+   ![image](https://github.com/user-attachments/assets/b01573f8-88f8-439f-bf5f-70fa3f84275e)
+
+   - **Nodes**
+      - `/teleop_turtle`: Publishes turtle1/cmd_vel information.
+      - `/turtlesim`: Subscribes to turtle1/cmd_vel information.
+   - **Topic**
+     - `turtle1/cmd_vel` information
+
+
+
+### Practice: Talker & Listener
+
+#### 1. Run Nodes and Topics
+
+1. Run the launch file
+
+   ```bash
+   roslaunch rospy_tutorials talker_listener.launch
+   ```
+
+2. Result
+
+   - The `talker` node publishes messages, and the `listener` node subscribes to them and prints the messages to the screen.
+
+   ![image](https://user-images.githubusercontent.com/91526930/234394784-a24bfbb2-8f10-443e-b23d-f5dafda2532e.png)
+
+3. 
+
+   ![image](https://user-images.githubusercontent.com/91526930/234394161-ca099b10-639c-466d-9162-7fe709a4a39a.png)
+
+#### 2. Check the Related Code
+
+1. Access the Tutorial folder
+
+   ```
+   roscd rospy_tutorials
+   code .
+   ```
+
+2. The folder contains `.launch` and `.py` files.
+
+   ![image](https://user-images.githubusercontent.com/91526930/234396103-730b952f-d540-4871-b962-3101a73b3778.png)
+
+3. `talker_listener.launch`
+
+   - Configured to run two nodes.
+   - Each node is initialized in its respective Python file.
+
+   ![image](https://user-images.githubusercontent.com/91526930/234396233-154876be-05dc-4bba-b92e-f6e1e1acc233.png)
+
+   
+
+4. `listener.py`
+
+   ![image](https://user-images.githubusercontent.com/91526930/234396748-210f85b3-f6da-42a1-8e1e-434460f27045.png)
+
+   - Initializes a node named `listener` using `init_node`.
+
+   - Subscribes to the `chatter` topic (String type).
+
+   - Executes a callback function when messages are received.
+  
+   - The callback prints the received data to the terminal.
+
+
+
+
+ 5. `talker.py`
+
+    ![image](https://user-images.githubusercontent.com/91526930/234398302-2ef57b3a-b3d7-4d62-966b-13475a1e5971.png)
+
+    - Declares a publisher variable `pub` for the `chatter` topic (String type).
+    - Initializes a node named `talker`.
+    - Generates and assigns a String message to `hello_str`.
+    - Publishes `hello_str` to the `chatter` topic.
+
+
+
+### Summary
+
+Nodes and topics are the core communication mechanisms in ROS.
+Through this practice, you learn how to run nodes, send/receive topic data, and visually confirm relationships between nodes using `rqt_graph`.
+These fundamentals allow you to design and expand more complex ROS systems.
