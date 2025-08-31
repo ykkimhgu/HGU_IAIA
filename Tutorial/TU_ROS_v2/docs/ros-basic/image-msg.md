@@ -345,3 +345,346 @@ self.cap = cv2.VideoCapture(1)          # usb camera에 해당하는 포트 반�
 
 
 
+
+
+# Generating and Loading Image Data
+
+- ROS can capture video streams from cameras and process them as images.  
+- In this practice, we will connect a built-in or USB camera to extract image frames.  
+- Understand the publisher-subscriber relationship for image messages.  
+- Configure a launch file and pass parameters.  
+- [USB-Camera Package Installation](docs/environment/ROS-packages-install.md)  
+
+---
+
+### Program Structure
+
+```bash
+catkin_ws/src
+└── my_package
+    ├── CMakeLists.txt
+    ├── msg
+    │   └── Person.msg
+    ├── package.xml
+    └── src
+        ├── custom_publisher.cpp
+        ├── custom_publisher.py
+        ├── custom_subscriber.cpp
+        ├── custom_subscriber.py
+        ├── camera.py
+        └── image_display.py
+```
+
+
+
+### Practice: Creating and Displaying Image Data
+
+#### 1. Create `camera.py` inside `my_package/src`
+
+  ```python
+    #!/usr/bin/env python3
+    # -*- coding:utf-8 -*-
+    
+    import rospy
+    import cv2
+    from sensor_msgs.msg import Image               # Import Image type from sensor_msgs package
+    from cv_bridge import CvBridge, CvBridgeError   # cv_bridge: convert between OpenCV images and ROS Image messages
+    
+    class CameraNode:
+    
+        def __init__(self):
+            rospy.init_node('camera_node', anonymous=True)  # Initialize node named "camera_node"
+            self.bridge = CvBridge()                        # Create cv_bridge object
+    
+            # Publisher that publishes Image messages to the topic "camera/image_raw"
+            self.image_pub = rospy.Publisher("camera/image_raw", Image, queue_size=1)
+    
+            # Create VideoCapture object to connect to camera (default: 0)
+            self.cap = cv2.VideoCapture(0)
+    
+        def run(self):
+            rate = rospy.Rate(30)                           # Run loop at 30 Hz
+            while not rospy.is_shutdown():                  # Continue until ROS is shutdown
+                ret, frame = self.cap.read()                # Read frame from camera
+                if ret:                                     # If frame is successfully captured
+                    try:
+                        # Convert OpenCV image to ROS Image message and publish
+                        self.image_pub.publish(self.bridge.cv2_to_imgmsg(frame, "bgr8"))
+                    except CvBridgeError as e:
+                        print(e)                            # Handle conversion exceptions
+                rate.sleep()                                # Wait to maintain loop rate
+    
+    if __name__ == '__main__':
+        try:
+            camera = CameraNode()   # Create CameraNode object
+            camera.run()            # Run node
+        except rospy.ROSInterruptException:
+            pass
+
+  ```
+
+
+
+#### 2. Create `image_display.py` inside `my_package/src`
+
+  ```python
+    #!/usr/bin/env python3
+    # -*- coding:utf-8 -*-
+    
+    import rospy
+    from sensor_msgs.msg import Image   # Import Image message type from sensor_msgs package
+    from cv_bridge import CvBridge      # cv_bridge: convert between OpenCV images and ROS Image messages
+    import cv2                          # Import OpenCV
+    
+    class DisplayNode:
+    
+        def __init__(self):
+            self.bridge = CvBridge()
+            # Subscriber: subscribe to topic "camera/image_raw" and call callback()
+            self.image_sub = rospy.Subscriber("camera/image_raw", Image, self.callback)
+    
+        def callback(self, data):
+            try:
+                # Convert ROS Image message to OpenCV image
+                cv_image = self.bridge.imgmsg_to_cv2(data, "bgr8")
+            except CvBridgeError as e:
+                print(e)
+    
+            # Display the image in a window named "Camera"
+            cv2.imshow("Camera", cv_image)
+            cv2.waitKey(1)  # Wait 1 ms for key event
+    
+        def run(self):
+            rospy.init_node('display_node', anonymous=True)  # Initialize node
+            rospy.spin()                                    # Keep running until shutdown
+    
+    if __name__ == '__main__':
+        try:
+            display = DisplayNode()   # Instantiate DisplayNode
+            display.run()             # Run node
+        except rospy.ROSInterruptException:
+            pass
+  ```
+
+
+
+#### 3. Update `package.xml`
+  ```xml
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <build_export_depend>cv_bridge</build_export_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  ```
+
+
+
+#### 4. Update `my_package/CMakeList.txt`
+  ```cmake
+  find_package(catkin REQUIRED COMPONENTS
+    roscpp
+    rospy
+    std_msgs
+    message_generation
+    sensor_msgs	# added
+    cv_bridge		# added
+  )
+  
+  generate_messages(
+    DEPENDENCIES
+    std_msgs
+    sensor_msgs	# added
+  )
+  
+  catkin_package(
+   CATKIN_DEPENDS  message_runtime sensor_msgs cv_bridge # added
+  )
+  ```
+
+
+
+#### 5. Build the Package
+
+  ```bash
+  [위치] ~/catkin_ws
+  catkin_make
+  ```
+
+
+
+#### 6. Grant Execution Permission to Python Scripts
+
+  ```bash
+  chmod +x ~/catkin_ws/src/my_package/src/camera.py
+  chmod +x ~/catkin_ws/src/my_package/src/image_display.py
+  ```
+
+
+
+#### 7. Run the Code
+  ```bash
+  roscore									# terminal 1
+  rosrun my_package camera.py			# terminal 2
+  rosrun my_package image_display.py		# terminal 3
+  rqt_graph								# terminal 4
+  ```
+
+![image](https://user-images.githubusercontent.com/91526930/235357562-126a214d-7139-4701-8e90-07a87a32ca53.png)
+
+
+### Practice: Modify Code to Accept Parameters via Launch File
+
+#### 1. Create `image_display.launch` inside `my_package/launch`
+
+  - `<arg ~ />`: Declares a parameter variable (argument).
+  - `<param ~ />`: Assigns a value to the parameter variable.
+
+  ```python
+  <launch>
+    <!-- Argument for the camera number, default to 0 -->
+    <arg name="camera_number" default="0"/>
+  
+    <node name="camera"           pkg="my_package" type="camera.py" output="screen">
+      <param name="camera_number" value="$(arg camera_number)" />
+    </node>
+    <node name="image_display"    pkg="my_package" type="image_display.py" output="screen"/>
+    
+  </launch>
+  ```
+
+#### 2. Modify `camera.py` 
+
+  - `rospy.get_param()`을 통해 parameter인 `camera_number`를 가져오기
+
+  ```python
+  #!/usr/bin/env python3
+  #-*- coding:utf-8 -*-
+  
+  import rospy
+  import cv2
+  from sensor_msgs.msg import Image               # sensor_msg 패키지로부터 Image type을 import함
+  from cv_bridge import CvBridge, CvBridgeError   # cv_bridge 라이브러리 : OpenCV 이미지와 ROS 메시지 간의 변환 가능
+  
+  class CameraNode:
+  
+      def __init__(self):
+          rospy.init_node('camera_node', anonymous=True)  # 노드 이름 "camera_node"로 초기화
+          self.bridge = CvBridge()                # cv_bridge 객체 생성
+  
+          # Get camera number from ROS parameter, default to 0
+          camera_number = rospy.get_param('~camera_number', 0)
+          rospy.loginfo(f"Camera number received: {camera_number}")
+  
+          # "camera/image_raw"라는 토픽으로 메시지를 publish할 publisher 객체 생성
+          self.image_pub = rospy.Publisher("camera/image_raw",Image,queue_size=1)    
+          
+          self.cap = cv2.VideoCapture(camera_number)          # 카메라 연결을 위한 VideoCapture 객체 생성
+  
+      def run(self):
+          rate = rospy.Rate(30)                           # 루프 실행 주기 : 30hz
+          while not rospy.is_shutdown():                  # ROS가 종료되지 않은 동안
+              ret, frame = self.cap.read()                # 카메라로부터 이미지를 읽음
+              if ret:                                     # 이미지가 정상적으로 읽혀진 경우
+                  try:
+                      # 읽어들인 이미지를 ROS Image 메시지로 변환하여 토픽으로 publish
+                      self.image_pub.publish(self.bridge.cv2_to_imgmsg(frame, "bgr8"))
+                  
+                  except CvBridgeError as e:
+                      print(e)                            # CvBridge 변환 예외 처리
+              rate.sleep()                                # 지정된 루프 실행 주기에 따라 대기
+  
+  if __name__ == '__main__':
+      try:
+          camera = CameraNode()       # CameraNode 객체 생성
+          camera.run()                # run 메서드 실행
+      except rospy.ROSInterruptException:
+          pass
+  ```
+
+#### 3. Run the Launch File
+  ```bash
+  roslaunch my_package image_display.launch camera_number:=0
+  ```
+
+
+
+
+
+### Practice: USB Camera Connection
+
+- reference: [ROS wiki - usb_cam](http://wiki.ros.org/usb_cam)
+
+#### 1. Check Camera Ports
+
+- Built-in camera:
+
+  ```bash
+  ls -ltr /dev/video*		# 연결된 카메라의 포트 확인
+  ```
+
+- Additional USB camera:
+
+  ```bash
+  sudo apt-get install v4l-utils -y   # v4l2 비디오 출력장치 제어 드라이버 설치하기
+  v4l2-ctl --list-devices       # 카메라 포트 확인
+  ```
+
+
+
+#### 2. Apply Port Number in `camera.py`
+
+```python
+self.cap = cv2.VideoCapture(1)          # usb camera에 해당하는 포트 반영(e.g. 1)
+```
+
+
+### Practice: Machine Vision Camera (PointGrey Camera)
+
+- Model: PointGrey - Blackfly 3
+
+- Specifications:
+    - 1288 x 964 resolution
+    - 30 fps
+    - USB connection
+    - Github - pointgrey_camera_driver
+
+#### 1. Install Driver
+  ```bash
+  sudo apt-get install ros-noetic-pointgrey-camera-driver
+  sudo apt-get update
+  ```
+
+
+
+#### 2. Detect Camera
+
+  ```bash
+  roscore                            # Terminal 1
+  rosrun pointgrey_camera_driver list_cameras    # Terminal 2
+  ```
+
+  ![image](https://user-images.githubusercontent.com/91526930/235361466-d02e984e-1d5d-402c-8a77-4bc341d13c3e.png)
+
+  **If detection fails, try reconnecting the USB or rebooting.**
+
+
+
+#### 3. Verify Operation
+  ```bash
+  roslaunch pointgrey_camera_driver camera.launch camera:=/15384429
+  rqt_graph
+  ```
+
+  <img src="https://user-images.githubusercontent.com/91526930/235361525-e59f1935-3f0c-4622-bd1c-3efb861abb4d.png" alt="image" style="zoom:67%;" />
+
+- Several nodes and topics are now created.
+- In particular, `/camera/image_raw` can be subscribed to:
+
+  ```bash
+  rosrun tutorial image_display.py
+  ```
+
+  <img src="https://user-images.githubusercontent.com/91526930/235361805-789a28b5-9876-4041-9d36-c523611271b3.png" alt="image" style="zoom:80%;" />
+
+- You can also subscribe to `image_mono` or `image_color` topics if necessary.
