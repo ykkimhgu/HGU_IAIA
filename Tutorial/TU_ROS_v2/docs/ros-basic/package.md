@@ -146,7 +146,7 @@ ROS에서 공식적으로 만들어서 제공하는 package는 아니지만, 특
   (catkin_ws 내부에 복사된 패키지는 편집이 가능함)
 
   ```bash
-  [위치] ~/catkin/src
+  Location: ~/catkin/src
   git clone https://github.com/[USERNAME]/[REPOSITORY_NAME].git
   git clone -b [branch name] https://github.com/[USERNAME]/[REPOSITORY_NAME].git # 특정 branch를 복사해야 하는 경우
   ```
@@ -154,6 +154,169 @@ ROS에서 공식적으로 만들어서 제공하는 package는 아니지만, 특
 - 패키지 빌드
 
   ```bash
-  [위치] ~/catkin
+  Location: ~/catkin
   catkin_make
   ```
+
+
+
+# Concept and Creation of a Package
+
+## What is a Package?
+
+In ROS, a **package** is the basic unit of software modules that performs functional roles within the ROS system:
+
+- **Data Integration**: Efficiently manages various data flows through nodes, message files, and service files.  
+- **System Modularization**: Breaks down complex robotic systems into independent software modules for easier design and maintenance.  
+- **Support for Scalability**: Extend robot functionality by combining existing and new packages.  
+
+A package typically contains the following elements:
+
+- **Node**: Executable programs in ROS.  
+- **Message Definition Files (msg)**: Define the data structures exchanged between nodes.  
+- **Service Definition Files (srv)**: Define request-response data structures.  
+- **Executables**: Compiled binaries or script files.  
+
+Packages can be managed independently within ROS and are designed for reusability.
+
+---
+
+## Package Structure
+
+A package usually consists of the following directories and files:
+
+- **CMakeLists.txt**: Build system configuration file defining the source code and dependencies.  
+- **package.xml**: XML file containing package metadata and dependencies.  
+- **src/**: Directory containing source code for nodes (Python or C++).  
+- **include/**: Directory for header files (used in C++ projects).  
+- **scripts/**: Directory containing executable Python scripts.  
+- **msg/**: Directory containing user-defined message files.  
+- **srv/**: Directory containing user-defined service files.  
+- **action/**: Directory containing action files (optional).  
+
+---
+
+## Practice: Creating a Package
+
+### 1. Create a Package
+Within the workspace, create a new package:
+
+```bash
+cd ~/catkin_ws/src
+catkin_create_pkg my_package std_msgs rospy roscpp
+```
+
+- **my_package**: The name of the package to create.
+- **std_msgs**: Dependency on the standard message library.
+- **rospy**: Dependency for Python ROS library.
+- **roscpp**: Dependency for C++ ROS library.
+
+
+
+#### 2. Build the Workspace
+
+After creating the package, rebuild the workspace:
+
+```
+cd ~/catkin_ws
+catkin_make
+```
+
+
+
+#### 3. Check Package Structure
+
+Verify the directory structure of the created package:
+
+```
+ls ~/catkin_ws/src/my_package
+```
+
+Example output:
+
+```
+CMakeLists.txt  include  package.xml  src
+```
+
+
+
+#### Generalized Package Structure
+
+```
+my_package/
+├── CMakeLists.txt          # Build system configuration file
+├── package.xml             # Package metadata file
+├── src/                    # Source code for nodes
+├── include/                # Header files (C++ projects)
+├── scripts/                # Executable scripts
+├── msg/                    # Message definition files
+├── srv/                    # Service definition files
+└── action/                 # Action definition files (optional)
+```
+
+
+
+
+
+### Role of a Package
+
+A package in ROS is a modular software unit that performs specific tasks with the following characteristics:
+
+- **Scalability**: Easy to add new functionality.
+- **Independence**: Each package can be managed independently.
+- **Reusability**: Existing packages can be reused to reduce development time.
+
+
+
+
+
+### Installing External Packages
+
+Official ROS packages can typically be installed using:
+
+```bash
+sudo apt-get install ros-noetic-[pacakge name]
+```
+
+Installed packages can be accessed with the `roscd` command:
+
+```bash
+roscd [package name]
+```
+
+As seen in the path, packages installed via apt are located under:
+`/opt/ros/noetic/share`
+
+These packages can be inspected with editors like `VS Code`, but modification permissions are not granted.
+
+![image](https://user-images.githubusercontent.com/91526930/235362934-a74b67f4-0026-4bf7-96af-aaeec117a5f3.png)
+
+
+
+### Copying External Packages
+
+Sometimes, packages are developed and distributed by companies or individuals via GitHub rather than being officially provided by ROS.
+
+- If the package is ROS-certified, it can be installed as:
+
+  ```bash
+  sudo apt-get install ros-noetic-[pacakge name]
+  ```
+
+- However, if you need to modify and build the package, you can copy it into `~/catkin_ws/src`.
+(Packages inside `catkin_ws` are editable.)
+
+  ```bash
+  Location: ~/catkin/src
+  git clone https://github.com/[USERNAME]/[REPOSITORY_NAME].git
+  git clone -b [branch name] https://github.com/[USERNAME]/[REPOSITORY_NAME].git # 특정 branch를 복사해야 하는 경우
+  ```
+
+- Build the Package
+
+  ```bash
+  Location: ~/catkin
+  catkin_make
+  ```
+
+  
