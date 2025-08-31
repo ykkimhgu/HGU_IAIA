@@ -1,6 +1,6 @@
-# bashrc 세팅
+# bashrc Settings
 
-## 1. bashrc 파일
+## 1. bashrc File
 
 - terminal 실행마다, 자동으로 초기화하기 위한 파일 script임.
 
@@ -10,13 +10,19 @@
 
 - 편집하기
 
+- A script file that runs automatically every time the terminal is launched.  
+- Stores initialization options, environment variables, and functions.  
+- Located in the `home` directory.
+- To edit:
+  
+
   ```bash
   gedit ~/.bashrc
   ```
 
 
 &nbsp;
-## 2. ROS 설치 후,
+## 2. After Installing ROS
 
 ```bash
 export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtiff.so.5    # libtiff 버전 충돌 방지(ROS <-> Conda)
@@ -28,10 +34,11 @@ export PYTHONPATH=~/catkin_ws/devel/lib/python3/dist-packages:/opt/ros/noetic/li
 
 
 &nbsp;
-## 3. ROS 환경 활성화 함수
+## 3. ROS 환경 활성화 [ROS Environment Activation Function]
 
 ```bash
 # 자동으로 ROS 환경 활성화
+# Automatically activate ROS environment
 function act_ros {
     source /opt/ros/noetic/setup.bash
     source ~/catkin_ws/devel/setup.bash
@@ -44,10 +51,11 @@ function act_ros {
 
 
 &nbsp;
-## 4. Anaconda 환경 활성화 함수
+## 4. Anaconda 환경 활성화 함수 [Anaconda Environment Activation Function]
 
 ```bash
 # 자동으로 Anaconda 환경 활성화
+# Automatically activate Anaconda environment
 function act_conda {
     conda activate base
     export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:~/catkin_ws/devel/lib/python3/dist-packages:~/anaconda3/envs/py38/lib/python3.8/site-packages
@@ -59,9 +67,10 @@ function act_conda {
 
 
 &nbsp;
-## 5. 별명 선언 예시
+## 5. 별명 선언 예시 [Alias Examples]
 
 별명 선언을 통해 terminal 내에서 빠른 명령 가능
+Aliases allow quick commands in the terminal
 
 ```bash
 alias re='source ~/.bashrc'
