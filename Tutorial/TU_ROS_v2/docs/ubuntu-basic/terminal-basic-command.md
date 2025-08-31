@@ -205,3 +205,216 @@ history                 # 명령어 기록 보기
 man ls                  # ls 명령어의 매뉴얼 보기
 ```
 
+
+
+
+
+# Frequently Used Ubuntu Terminal Commands
+
+The Ubuntu terminal is a powerful tool that allows efficient system management and control through commands.  
+Below are the most commonly used basic commands in the Ubuntu terminal, along with their explanations.
+
+---
+
+## 1. Directory Navigation Commands
+
+### cd (Change Directory)
+Moves between directories.  
+
+```bash
+cd /home/user/Documents   # Move to the Documents directory
+cd ..                     # Move to the parent directory
+cd ~                      # Move to the home directory
+cd /                      # Move to the root directory
+```
+
+
+
+#### **ls (List)**
+
+Lists files and folders in the current directory.
+
+```
+ls                        # Display basic list
+ls -l                     # Display detailed information
+ls -a                     # Include hidden files
+ls -lh                    # Human-readable file sizes
+```
+
+
+
+
+&nbsp;&nbsp;
+### 2. File and Directory Management
+
+#### **mkdir (Make Directory)**
+
+Creates a new directory.
+
+```
+mkdir new_folder         # Create a directory named new_folder
+```
+
+
+
+#### **rm (Remove)**
+
+Deletes files or directories.
+
+```
+rm file.txt               # Delete a file
+rm -r folder              # Delete a folder and its contents
+rm -rf folder             # Force delete (use with caution)
+```
+
+
+
+#### **cp (Copy)**
+
+Copies files or directories.
+
+```
+cp file1.txt file2.txt    # Copy file1.txt to file2.txt
+cp -r folder1 folder2     # Copy contents of folder1 into folder2
+```
+
+
+
+#### **mv (Move)**
+
+Moves or renames files/directories.
+
+```
+mv oldname.txt newname.txt  # Rename a file
+mv file.txt /new/path       # Move a file to a new path
+```
+
+
+
+
+&nbsp;&nbsp;
+### 3. System Management Commands
+
+#### **sudo (Super User Do)**
+
+Executes commands with administrator privileges, typically for system modifications or installations.
+
+```
+sudo apt update           # Update package lists
+sudo rm -rf /folder       # Delete folder with admin rights
+```
+
+
+
+#### **apt (Advanced Package Tool)**
+
+Used for software installation and updates.
+
+```
+sudo apt update           # Update package lists
+sudo apt upgrade          # Upgrade the system
+sudo apt install vim      # Install the vim editor
+sudo apt remove vim       # Remove the vim editor
+```
+
+
+
+#### **chmod (Change Mode)**
+
+Changes file or directory permissions.
+
+```
+chmod 755 script.sh       # Grant read, write, execute permissions
+chmod +x script.sh        # Add execute permission
+```
+
+
+
+
+&nbsp;&nbsp;
+### 4. Viewing and Editing Files
+
+#### **cat (Concatenate)**
+
+Displays the contents of a file.
+
+```
+cat file.txt              # View file contents
+```
+
+
+
+#### **nano**
+
+A terminal-based text editor.
+
+```
+nano file.txt           # Open and edit file
+```
+
+
+&nbsp;&nbsp;
+### 5. System Information
+
+#### **pwd (Print Working Directory)**
+
+Displays the path of the current working directory.
+
+```
+pwd                       # Show current directory path
+```
+
+
+
+#### **df (Disk Free)**
+
+Checks disk space usage.
+
+```
+df -h                   # Human-readable format
+```
+
+
+
+#### **top**
+
+Monitors running processes and system resource usage in real time.
+
+```
+top                     # Process monitoring
+```
+
+
+
+
+&nbsp;&nbsp;
+### 6. Other Useful Commands
+
+#### **clear**
+
+Clears the terminal screen.
+
+```
+clear               
+```
+
+
+
+#### **history**
+
+Shows previously executed commands.
+
+```
+history               
+```
+
+
+
+#### **man (Manual)**
+
+Displays the manual page (help) for a command.
+
+```
+man ls                 # Show the manual for the ls command
+```
+
