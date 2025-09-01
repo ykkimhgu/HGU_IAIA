@@ -23,7 +23,6 @@ TBA
 * Signal Processing Toolbox
 
 
-
 ### 2. Create workspace
 
 We will create the main directory under **C:\Users\yourID\source\repos\IAIA\**
@@ -59,9 +58,24 @@ Examples of folder names
 - ..\IAIA\Project
 - ..\IAIA\Assignment
 
+---
+# Part: Co-Robot with ROS
+
+## Tutorial
+### [ROS Tutorial](https://github.com/ykkimhgu/HGU_IAIA/tree/main/Tutorial/TU_ROS_v2)
+
+## Project
+### [Project: Robot Automation](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Project2_RobotAutomation.md)
+
+## LAB
+### [LAB:  Pet Feeder Robot](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_PetFeederRobot.md)
 
 
-### 3. Create Tutorial folders
+---
+
+# Part : Industrial AI
+## Preparation
+### Create Tutorial folders
 
 Under `..\IAIA\Tutorial\` folder, create the following sub-folders
 
@@ -77,66 +91,38 @@ Under `..\IAIA\Tutorial\` folder, create the following sub-folders
 
   
 
----
-
-# Dataset
+## Dataset
 [Read the description of datasets used in this class](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Dataset_Description.md)
 
+[Dataset For Case Study: WT prognosis](https://drive.google.com/drive/folders/1msOkNKD7zuBDxMqTywkEfcpp9lnW-wEf?usp=sharing)
 
-## Case Study 3 : WT prognosis
-[Case Study 3 Dataset](https://drive.google.com/drive/folders/1msOkNKD7zuBDxMqTywkEfcpp9lnW-wEf?usp=sharing)
 
----
-
-# Assignments
-
+## Assignments
 Assignments can be changed with notice
-
-
-
 
 ### [Assignment 1:  Pre-Processing & Feature Extraction](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Assignment_1_FeatureExtraction.md)
 
-
-
 ### [Assignment 2:  Classification CWRU small](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Assignment_2_Classification_CWRU.md)
 
-
 ### Assignment 3:  Machine Learning Tutorials
-
 Submit all tutorial matlab  files on machine learning 
 *  LinearRegression, LogisticRegression
 * KNN, SVM, TREE, LDA
 *  PCA, Feature Selection
 
 
+## LAB
 
----
+### [LAB: CWRU Bearing Fault Diagnosis](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Assignment/LAB_Bearing_CWRU/IAIA_LAB_CWRU_BearingFaultClassification.md)
 
-
-
-# LAB
-This  can be changed with notice
+### [LAB:  Bearing Fault Monitoring and RUL Estimation](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_Prognostic_BearingFault_RUL.md)
 
 
-### [LAB 1: CWRU Bearing Fault Diagnosis](https://github.com/ykkimhgu/HGU_IAIA/blob/main/Assignment/LAB_Bearing_CWRU/IAIA_LAB_CWRU_BearingFaultClassification.md)
-
-
-
-### [LAB 2:  Bearing Fault Monitoring and RUL Estimation](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_Prognostic_BearingFault_RUL.md)
-
-
-### [LAB 3:  Pet Feeder Robot](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_PetFeederRobot.md)
-
-
----
 # Project 
-This  can be changed with notice
-
-### [Project 1: PHM](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Project1_PHM.md)
+### [Project: PHM](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Project1_PHM.md)
 
 
-### [Project 2: Robot Automation](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Project2_RobotAutomation.md)
+
 
 
 
