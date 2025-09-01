@@ -118,7 +118,7 @@ Submit all tutorial matlab  files on machine learning
 ### [LAB:  Bearing Fault Monitoring and RUL Estimation](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_LAB_Prognostic_BearingFault_RUL.md)
 
 
-# Project 
+## Project 
 ### [Project: PHM](https://github.com/ykkimhgu/HGU_IAIA/blob/main/IAIA_Project1_PHM.md)
 
 
