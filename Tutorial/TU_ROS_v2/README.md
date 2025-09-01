@@ -1,5 +1,6 @@
 # ROS-Tutorial
 
+- For English, use Chrome Translate Tool
 - 본 자료는 한동대학교 김영근 교수님의 "산업 AI 및 자동화" 수업을 위한 ROS 튜토리얼 자료입니다.
 
 
