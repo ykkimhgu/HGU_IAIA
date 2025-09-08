@@ -2,7 +2,7 @@
 ## Program Structure
 ```bash
 catkin_ws/src
-├── tutorial
+├── my_package
     ├── CMakeLists.txt
     ├── msg
     ├── package.xml
